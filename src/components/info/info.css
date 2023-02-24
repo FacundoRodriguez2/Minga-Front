@@ -49,10 +49,12 @@
 }
 
 #info-container #backnaruto{
-    height: 28.125rem;
+    height: 53.8vh;
+    width: 100%;
     background: url(../../images/narutoshort.svg);
     background-position: cover;
     background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 6px;
     display: flex;
     justify-content: center;
