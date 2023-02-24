@@ -1,0 +1,19 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.875rem;
+}
+#logo{
+    width: 5.5rem;
+    height: 5.5rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+   header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+   }
+    
+}
