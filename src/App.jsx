@@ -1,11 +1,11 @@
 import './App.css';
-import Hero from './components/hero/hero';
-import Register from './components/register/register';
+import Index from './components/index';
+
+
 function App() {
   return (
     <div className="App">
-      <Hero/>
-      <Register/>
+      <Index />
     </div>
   );
 }
