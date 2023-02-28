@@ -7,7 +7,6 @@ import "./hero.css"
 export default function Hero(){
     return(
         <div id="hero">
-            <Header/>
             <Info/>
         </div>
         
