@@ -9,6 +9,8 @@ import Input from '../input/input'
 import Camera from '../../images/camera.svg'
 import { useRef } from 'react'
 import axios from 'axios'
+import { Link as Anchor } from 'react-router-dom'
+
 export default function RegisterForm() {
     let dataForm = useRef()
     let form = document.getElementById('form')
@@ -58,7 +60,7 @@ export default function RegisterForm() {
             <Input className='sign-up' type='submit' value="Sign up" />
             <a href='#' className='sign-in-google'> <img src={googleLogo} alt="googleLogo" /><span>Sign in with Google</span></a>
             <p>Already have an account? <a href='#' className='link'>Log in</a></p>
-            <p>Go back to <a href='#' className='link'>home page</a></p>
+            <p>Go back to <Anchor to='/' className='link'>home page</Anchor></p> 
         </form>
     )
 }
