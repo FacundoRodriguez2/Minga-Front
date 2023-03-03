@@ -33,7 +33,7 @@ export default function RegisterForm() {
             [formInputs[3].name]: formInputs[3].value
         }
 
-        let url = 'http://localhost:8080/users'
+        let url = 'http://localhost:8080/api/users'
        
             try{
                 await axios.post(url,data)
