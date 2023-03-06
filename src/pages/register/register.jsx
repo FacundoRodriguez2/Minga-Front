@@ -1,7 +1,7 @@
 import React from 'react'
 import './register.css'
-import Welcome from '../welcome/welcome'
-import RegisterForm from '../registerform/registerform'
+import Welcome from '../../components/welcome/welcome'
+import RegisterForm from '../../components/registerform/registerform'
 import Vilage from '../../images/vilage.svg'
 
 export default function Register() {

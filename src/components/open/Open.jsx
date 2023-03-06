@@ -1,11 +1,12 @@
 import React from "react";
 import Userimg from "../../images/profilepicture.svg"
 import Goback from "../../images/goback.svg"
-
+import { Link as Anchor, useParams } from 'react-router-dom'
 import "./open.css"
 
 
 export default function Open({onClick}){
+    const { favourites } = useParams()
     return(
         <nav id="navopen">
             <div id="user">
@@ -25,21 +26,11 @@ export default function Open({onClick}){
                 </div>
             </div>
             <div id="pages">
-                <div id="current">
-                    <a class="page" href="#">home</a>
-                </div>
-                <div class="page">
-                    <a href="#">Mangas</a>
-                </div>
-                <div class="page">
-                    <a href="#">MyMangas</a>
-                </div>
-                <div class="page">
-                    <a href="#">Favourites</a>
-                </div>
-                <div class="page">
-                    <a href="#">Logout</a>
-                </div>
+            <Anchor id="current" to='/' className='active'>Home</Anchor>
+            <Anchor className="page" to='/'>Mangas</Anchor>
+            <Anchor className="page" to='/'>My mangas</Anchor>
+            <Anchor className="page" to='/'>Favourites</Anchor>
+            <Anchor className="page" to='/'>Logout</Anchor>
             </div>
 
         </nav>

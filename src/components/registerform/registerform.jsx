@@ -6,8 +6,11 @@ import profile from '../../images/profile.svg'
 import email from '../../images/@.svg'
 import lock from '../../images/lock1.svg'
 import Input from '../input/input'
+import Camera from '../../images/camera.svg'
 import { useRef } from 'react'
 import axios from 'axios'
+import { Link as Anchor } from 'react-router-dom'
+
 export default function RegisterForm() {
     let dataForm = useRef()
     let form = document.getElementById('form')
@@ -27,10 +30,11 @@ export default function RegisterForm() {
             [formInputs[0].name]: formInputs[0].value,
             [formInputs[1].name]: formInputs[1].value,
             [formInputs[2].name]: formInputs[2].value,
+            [formInputs[3].name]: formInputs[3].value
         }
 
-        let url = 'http://localhost:8080/users'
-        if(formInputs[2].value === formInputs[3].value){
+        let url = 'http://localhost:8080/api/auth/signup'
+       
             try{
                 await axios.post(url,data)
                 
@@ -40,19 +44,14 @@ export default function RegisterForm() {
                 console.log(error)
                 console.log("ocurrio un error")
             }
-            
-        }else{
-            alert("Las contraseñas no coinciden")
-        }
-        
     }
 
     return (
         <form className='form' id='form' onSubmit={handleSubmit} ref={dataForm}>
             <RegisterFieldset legendText='Name' inputType='text' inputName='name' inputId='name' imgSrc={profile} imgAlt='person' />
             <RegisterFieldset legendText='Email' inputType='email' inputName='mail' inputId='mail' imgSrc={email} imgAlt='@' />
-            <RegisterFieldset id='field-password' legendText='Password' inputType='password' inputName='password' inputId='password' imgSrc={lock} imgAlt='lock' />
-            <RegisterFieldset legendText='Confirm Password' inputType='password' inputName='confirm-password' inputId='confirm-password' imgSrc={lock} imgAlt='lock' />
+            <RegisterFieldset legendText='Photo' inputType='password' inputName='password' inputId='password' imgSrc={Camera} imgAlt='lock' />
+            <RegisterFieldset legendText='Confirm Password' inputType='Password' inputName='confirm-password' inputId='confirm-password' imgSrc={lock} imgAlt='lock' />
             
             <fieldset className='notification-check'>
                 <input type="checkbox" name='email-notification' id='email-notification' />
@@ -61,7 +60,7 @@ export default function RegisterForm() {
             <Input className='sign-up' type='submit' value="Sign up" />
             <a href='#' className='sign-in-google'> <img src={googleLogo} alt="googleLogo" /><span>Sign in with Google</span></a>
             <p>Already have an account? <a href='#' className='link'>Log in</a></p>
-            <p>Go back to <a href='#' className='link'>home page</a></p>
+            <p>Go back to <Anchor to='/' className='link'>home page</Anchor></p> 
         </form>
     )
 }

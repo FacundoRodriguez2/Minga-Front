@@ -4,11 +4,13 @@ import Input from "../../components/input/input";
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import image from "../../images/image.png"
 
-export default function ChaptherForm() {
+
+export default function AuthorForm() {
     let dataForm = useRef()
-    let {manga_id} = useParams()
-    console.log(manga_id)
+    let {user_id} = useParams()
+    console.log(user_id)
     async function handleSubmit(e){
         e.preventDefault()
 
@@ -18,20 +20,25 @@ export default function ChaptherForm() {
                 formInputs.push(e.value)
             }
         })
+        let [city, country] = formInputs[2].split(',');
         let data = {
-            title : formInputs[0],
-            order: formInputs[1],
-            pages: formInputs[2].split(','),
-            manga_id,
+        name: formInputs[0],
+        last_name: formInputs[1],
+        city: city,
+        country: country,
+        date: formInputs[3],
+        photo: formInputs[4],
+        user_id
         }
+
         console.log(data)
-        let url = 'http://localhost:8080/api/chapters'
+        let url = 'http://localhost:8080/api/authors'
         let token = localStorage.getItem('token')
-        //let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDI3Nzk4ODljZmViZDI0M2FlMjA5OCIsImlhdCI6MTY3Nzg4MzY2NCwiZXhwIjoxNjc3OTcwMDY0fQ.WZyxDT1BHvV9CaKee7BHD7ZseFZwSRzig8D-UFRFaLg"
+        console.log(token)
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
         try{
             await axios.post(url,data,headers)
-            alert('Chapther created')
+            alert('Author created successfully')
             dataForm.current.reset()
           }catch(error){
             console.log(error)
@@ -46,22 +53,23 @@ export default function ChaptherForm() {
                }
           }
     }
-
-
-
         return(
-        <div id="chapterbox">
-            <div id="chaptercontent">
-                <section id="newchapter" >
-                    <h2>New Chapter</h2>
-                </section>
-                <form id="chaptherform" ref={dataForm} onSubmit={handleSubmit}>
-                    <Input className='chaptherinput' type='text' name='title' placeholder='Insert Title'/>
-                    <Input className='chaptherinput' type='text' name='order' placeholder='Insert order'/>
-                    <Input className='chaptherinput' type='text' name='pages' placeholder='Insert pages'/>
-                    <Input className='chaptherinput' type='text' name='title' placeholder='Insert Title'/>
-                    <Input className='chaptherinput' type='text' name='order' placeholder='Insert order'/>
-                    <Input className='chaptherinput' type='text' name='pages' placeholder='Insert pages'/>
+        <div id="authorbox">
+            <div id="authorcontent">
+                <div id="newAuthor" >
+                    <h2>New Author</h2>
+                </div>
+
+                <div>
+                    <img src={image} alt="profile"/> 
+                </div>
+
+                <form id="authorform" ref={dataForm} onSubmit={handleSubmit}>
+                    <Input className='authorinput' type='text' name='name' placeholder='Name'/>
+                    <Input className='authorinput' type='text' name='last_name' placeholder='Last Name'/>
+                    <Input className='authorinput' type='text' name='city, country' placeholder='City, Country'/>
+                    <Input className='authorinput' type='date' name='date' placeholder='Date'/>
+                    <Input className='authorinput' type='url' name='photo' placeholder='URL Profile Image'/>
                     <Input id='send' type='submit' value='Send'/>
                 </form>
             </div>
