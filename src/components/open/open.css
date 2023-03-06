@@ -11,10 +11,10 @@
 #navopen{
     background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
     border-radius: 10px;
-    width: 29.861vw;
+    width: 33vw;
     height: 100vh;
-    z-index: 0;
-    position: absolute;
+    z-index: 1;
+    position: fixed;
     top: 0;
     left: 0;
     padding: 24px;

@@ -3,6 +3,9 @@ header{
     align-items: center;
     justify-content: space-between;
     padding-top: 0.875rem;
+    position: absolute;
+    width: 87.361vw;
+    margin-left: 91px;
 }
 #logo{
     width: 5.5rem;
@@ -14,6 +17,7 @@ header{
     position: absolute;
     top: 0;
     width: 100%;
+    margin-left: 0;
    }
     
 }

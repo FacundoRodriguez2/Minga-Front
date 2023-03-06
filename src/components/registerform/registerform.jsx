@@ -50,8 +50,8 @@ export default function RegisterForm() {
         <form className='form' id='form' onSubmit={handleSubmit} ref={dataForm}>
             <RegisterFieldset legendText='Name' inputType='text' inputName='name' inputId='name' imgSrc={profile} imgAlt='person' />
             <RegisterFieldset legendText='Email' inputType='email' inputName='mail' inputId='mail' imgSrc={email} imgAlt='@' />
-            <RegisterFieldset legendText='Photo' inputType='password' inputName='password' inputId='password' imgSrc={Camera} imgAlt='lock' />
-            <RegisterFieldset legendText='Confirm Password' inputType='Password' inputName='confirm-password' inputId='confirm-password' imgSrc={lock} imgAlt='lock' />
+            <RegisterFieldset legendText='Photo' inputType='photo' inputName='photo' inputId='photo' imgSrc={Camera} imgAlt='camera' />
+            <RegisterFieldset legendText='Password' inputType='Password' inputName='password' inputId='password' imgSrc={lock} imgAlt='lock' />
             
             <fieldset className='notification-check'>
                 <input type="checkbox" name='email-notification' id='email-notification' />
