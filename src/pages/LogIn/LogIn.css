@@ -1,7 +1,7 @@
 .log-in{
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .form-section {
@@ -12,6 +12,7 @@
     width: 50vw;
     height: 100vh;
     margin-top: 4rem;
+    padding-bottom: 2rem;
 }
 
 .welcome-section p{
