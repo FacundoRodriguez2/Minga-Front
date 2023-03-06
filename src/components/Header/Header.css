@@ -6,7 +6,9 @@ header{
     position: absolute;
     width: 87.361vw;
     margin-left: 91px;
+    top: 0;
 }
+
 #logo{
     width: 5.5rem;
     height: 5.5rem;
