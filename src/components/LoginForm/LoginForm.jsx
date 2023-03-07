@@ -55,7 +55,7 @@ export default function LoginForm({ renderRegister }) {
       <RegisterFieldset legendText='Email' inputType='email' inputName='mail' inputId='mail' imgSrc={email} imgAlt='@' />
       <RegisterFieldset id='field-password' legendText='Password' inputType='password' inputName='password' inputId='password' imgSrc={lock} imgAlt='lock' />
 
-      <p>Already have an account? <Anchor to='signin' className='link'>Log in</Anchor></p>
+      <Input className='sign-up' type='submit' value="Sign up" />
       <a href='#' className='sign-in-google'> <img src={googleLogo} alt="googleLogo" /><span>Sign in with Google</span></a>
       <p>You don´t have an account yet? <Anchor onClick={renderRegister} className='link'>Sign Up</Anchor></p>
       <p>Go back to <Anchor to='/' className='link'>home page</Anchor></p> 
