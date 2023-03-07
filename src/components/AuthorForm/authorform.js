@@ -1,6 +1,6 @@
 import React from "react";
 import './authorForm.css'
-import Input from "../../components/input/input";
+import Input from "../input/input";
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
