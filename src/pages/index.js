@@ -25,19 +25,12 @@ const router = createBrowserRouter([
         children: [
             { path: '/register' , element: <AuthForm /> },
             { path: '/signin' , element: <LogIn /> },
-            { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> }
+            { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
+            { path: '/author-form'  , element: <FormAuthor/> },
+            { path: '/company-form' , element: <FormCompany/> }
 
         ]
-    },
-    { 
-        path: '/author-form' , 
-        element: <FormAuthor/> 
-    },
-    { 
-        path: '/company-form' , 
-        element: <FormCompany/> 
-    },
-
+    }
 ])
 
 export default router
