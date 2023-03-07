@@ -10,10 +10,10 @@ import Camera from '../../images/camera.svg'
 import { useRef } from 'react'
 import axios from 'axios'
 import { Link as Anchor } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
-export default function RegisterForm() {
+export default function RegisterForm({renderLogin}) {
     let dataForm = useRef()
-    let form = document.getElementById('form')
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -38,13 +38,16 @@ export default function RegisterForm() {
             try{
                 await axios.post(url,data)
                 
-                alert("Registro exitoso")
+                Swal.fire("Login Successful")
                 dataForm.current.reset()
-              }catch(error){
-                console.log(error)
-                console.log("ocurrio un error")
+              }catch (error) {
+                if (typeof error.response.data.message === 'string') {
+                    Swal.fire(error.response.data.message)
+                } else {
+                    error.response.data.message.forEach(err => Swal.fire(err))
+                }
             }
-    }
+        }
 
     return (
         <form className='form' id='form' onSubmit={handleSubmit} ref={dataForm}>
@@ -59,7 +62,8 @@ export default function RegisterForm() {
             </fieldset>
             <Input className='sign-up' type='submit' value="Sign up" />
             <a href='#' className='sign-in-google'> <img src={googleLogo} alt="googleLogo" /><span>Sign in with Google</span></a>
-            <p>Already have an account? <a href='#' className='link'>Log in</a></p>
+
+            <p>Already have an account? <Anchor onClick={renderLogin} className='link'>Log in</Anchor></p>
             <p>Go back to <Anchor to='/' className='link'>home page</Anchor></p> 
         </form>
     )
