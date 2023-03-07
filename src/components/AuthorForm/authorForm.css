@@ -11,7 +11,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6.54vh;
+    gap: 2.54vh;
+    margin-top: 3rem;
 }
 
 #authorbox #authorcontent #newAuthor{
@@ -27,6 +28,7 @@
     line-height: 44px;
     text-align: center;
     width: 69.0625vw;
+    margin-top: 3rem;
 }
 
 
