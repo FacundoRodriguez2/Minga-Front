@@ -16,6 +16,7 @@ const router = createBrowserRouter([
         children: [
             { path: '/', element: <Index /> },
             { path: '/hero' , element: <Hero />},
+
             { path: '/auth' , element: <AuthForm />},
         ]
     }, 
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
         path: '/' , 
         element: <MainLayout /> , 
         children: [
+
             { path: '/register' , element: <AuthForm state='register'/> },
             { path: '/manga-form' , element: <MangaForm /> },
             { path: '/signin' , element: <AuthForm state='login'/> },
