@@ -27,7 +27,7 @@ export default function Open({onClick}){
             </div>
             <div id="pages">
             <Anchor id="current" to='/' className='active'>Home</Anchor>
-            <Anchor className="page" to='/'>Mangas</Anchor>
+            <Anchor className="page" to='/manga-form'>Mangas</Anchor>
             <Anchor className="page" to='/'>My mangas</Anchor>
             <Anchor className="page" to='/'>Favourites</Anchor>
             <Anchor className="page" to='/'>Logout</Anchor>
