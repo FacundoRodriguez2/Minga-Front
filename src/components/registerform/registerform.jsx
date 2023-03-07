@@ -59,7 +59,7 @@ export default function RegisterForm() {
             </fieldset>
             <Input className='sign-up' type='submit' value="Sign up" />
             <a href='#' className='sign-in-google'> <img src={googleLogo} alt="googleLogo" /><span>Sign in with Google</span></a>
-            <p>Already have an account? <a href='#' className='link'>Log in</a></p>
+            <p>Already have an account? <Anchor to='signin' className='link'>Log in</Anchor></p>
             <p>Go back to <Anchor to='/' className='link'>home page</Anchor></p> 
         </form>
     )
