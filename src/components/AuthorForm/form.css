@@ -1,37 +1,31 @@
-.log-in{
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-}
-
-.form-section {
+.form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
-    width: 50vw;
-    height: 100vh;
-    margin-top: 4rem;
-    padding-bottom: 2rem;
+    gap: 22px;
 }
 
-.welcome-section p{
-    margin-top: 1rem;
+.form .notification-check{
+    border: none;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    height: auto;
 }
 
-.welcome-section span {
-    color: rgb(245, 118, 184);
+.form .notification-check input{
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border-radius: 5px;
 }
 
-.img-section {
-    width: 50vw;
-    height: 100vh;
-}
-
-.img-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.form .notification-check label{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #1F1F1F;
 }
 
 .form .sign-up{
@@ -53,10 +47,6 @@
     margin: 0 auto;
 }
 
-.form .sign-up:hover { 
-    cursor: pointer;
-}
-
 .form .sign-in-google{
     width: 384px;
     height: 48px;
@@ -72,7 +62,7 @@
     margin: 0 auto;
 }
 
-.sign-in-google span{
+.form .sign-in-google span{
     opacity: 0.5;
     font-weight: 500;
     font-size: 14px;
@@ -95,24 +85,11 @@
 }
 
 @media (max-width: 814px){
-    .form-section{
-        justify-content: center;
-        width: 100vw;
-    }
-
-    .form {
-        padding: 2rem;
-    }
-
-    .form .sign-up {
+    .form .sign-up{
         width: 300px;
     }
 
-    .form .sign-in-google {
+    .form .sign-in-google{
         width: 300px;
-    }
-
-    .img-section{
-        display: none;
     }
 }
