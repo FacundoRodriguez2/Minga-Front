@@ -4,6 +4,7 @@ import IndexLayout from "../layouts/IndexLayout/IndexLayout";
 import MainLayout from '../layouts/MainLayout/MainLayout'
 import Index from "./index/index";
 import AuthForm from './AuthForm/AuthForm'
+import MangaForm from "./Mangaform/MangaForm";
 import ChaptherForm from "./ChapterForm/ChapterForm";
 import LogIn from "./LogIn/LogIn";
 import FormAuthor from "./AuthorForm/AuthorForm";
@@ -24,6 +25,8 @@ const router = createBrowserRouter([
         element: <MainLayout /> , 
         children: [
             { path: '/register' , element: <AuthForm /> },
+            { path: '/signin' , element: <AuthForm /> },
+            { path: '/manga-form' , element: <MangaForm /> },
             { path: '/signin' , element: <LogIn /> },
             { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
             { path: '/author-form'  , element: <FormAuthor/> },
