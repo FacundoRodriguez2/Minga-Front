@@ -1,4 +1,3 @@
-import AuthorForm from "./AuthorForm/authorform.js"
 import { createBrowserRouter } from "react-router-dom";
 import Hero from "./hero/hero";
 import IndexLayout from "../layouts/IndexLayout/IndexLayout";
@@ -7,6 +6,8 @@ import Index from "./index/index";
 import AuthForm from './AuthForm/AuthForm'
 import ChaptherForm from "./ChapterForm/ChapterForm";
 import LogIn from "./LogIn/LogIn";
+import FormAuthor from "./AuthorForm/AuthorForm";
+import FormCompany from "./CompanyForm/companyForm";
 
 const router = createBrowserRouter([
     { 
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
     },
     { 
         path: '/author-form' , 
-        element: <AuthorForm/> 
+        element: <FormAuthor/> 
+    },
+    { 
+        path: '/company-form' , 
+        element: <FormCompany/> 
     },
 
 ])
