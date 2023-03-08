@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
+import './navbar.css'
 import Menu from "../../images/Menu.svg"
-import "./navbar.css"
-export default function Navbar({onClick}){
 
-    return(
-        <div onClick={onClick} >
+export default function NavBar({onClick}) {
+    return (
+        <div onClick={onClick} className='ham-menu'>
             <img id="hmenu" src={Menu} alt="Handburguer menu" />
         </div>
     )
