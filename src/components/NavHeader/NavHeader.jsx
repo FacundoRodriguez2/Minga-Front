@@ -1,9 +1,6 @@
 import React from 'react'
 import './navHeader.css'
-import Image from '../Image/Image'
-import H2 from '../H2/H2'
-import P from '../P/P'
-import closeBtn from '../../images/closeBtn.svg'
+import Goback from "../../images/goback.svg"
 import axios from 'axios'
 import { useEffect } from 'react'
 
@@ -24,28 +21,26 @@ export default function NavHeader({handleRender}) {
     let photo = user.photo
 
     useEffect(() => {
-        let url = `http://localhost:8080/auth/token`
+        let url = `http://localhost:8080/api/auth/token`
         if (token) {
             let headers = {headers:{'Authorization':`Bearer ${token}`}}
             axios.post(url,null,headers)
         }
     })
-
     return (
         <div className='navHeader'>
-        
             {
                 token ? <div className='picAndText'>
-                        <Image className='profilePic' src={photo} alt='profile-picture' />
+                        <img className='profilePic' src={photo} alt='profile-picture' />
                         <div className='nameAndMail'>
-                            <H2 text={name} />
-                            <P text={mail} />
+                            <h2>{name} </h2>
+                            <p> {mail} </p>
                         </div>
                         </div>
                         : ""
             }
             <div onClick={handleRender} className='closeBtn'>
-                <Image src={closeBtn} />
+                <img src={Goback} />
             </div>
         </div>
     )

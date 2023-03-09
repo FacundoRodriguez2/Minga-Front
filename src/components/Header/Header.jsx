@@ -7,16 +7,15 @@ import { useState } from "react"
 
 export default function Header(){
     const[render,setRender]=useState(false)
+    
     function handleRender(){
         setRender(!render)
     }
-    
 
     return(
         <header>
             <Navbar onClick={handleRender}/>
-            {render ? <Open onClick={handleRender} /> : ""}
-
+            {render ? <Open handleRender={handleRender} /> : ""}
             <img id="logo" src={Logo} alt="Logo"/>
         </header>
         
