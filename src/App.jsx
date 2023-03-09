@@ -1,8 +1,10 @@
-import './App.css';
+import './App.css'
 import router from './pages/index'
-import { RouterProvider } from 'react-router-dom';
-import { useEffect } from 'react';
-import axios from 'axios';
+import { RouterProvider } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { useEffect } from 'react'
+import axios from 'axios'
+import store from './store/store'
 
 function App() {
   useEffect(() => {
@@ -15,9 +17,9 @@ function App() {
    },[])
 
   return (
-    <div className="App">
+    <Provider store={store} >
      <RouterProvider router={router} /> 
-    </div>
+    </Provider>
   );
 }
 
