@@ -2,6 +2,7 @@ import React from 'react'
 import email from '../../images/@.svg'
 import lock from '../../images/lock1.svg'
 import RegisterFieldset from '../registerfieldset/registerfieldset'
+import Input from '../input/input'
 import googleLogo from '../../images/Google.svg'
 import { Link as Anchor } from 'react-router-dom'
 import { useRef } from 'react'
@@ -27,7 +28,7 @@ export default function LoginForm({ renderRegister }) {
       [formInputs[1].name]: formInputs[1].value,
     }
 
-    let url = 'http://localhost:8080/auth/signin'
+    let url = 'http://localhost:8080/api/auth/signin'
     try {
       await axios.post(url, data)
         .then(res => {
@@ -39,14 +40,10 @@ export default function LoginForm({ renderRegister }) {
           }))
           setInterval(() => window.location.href = '/', 1000)
         })
-        Swal.fire("Login Successful")
+      Swal.fire("Login Successful")
       dataForm.current.reset()
     } catch (error) {
-      if (typeof error.response.data.message === 'string') {
-        Swal.fire(error.response.data.message)
-      } else {
-        error.response.data.message.forEach(err => Swal.fire(err))
-      }
+      console.log(error)
     }
   }
 
@@ -58,7 +55,7 @@ export default function LoginForm({ renderRegister }) {
       <Input className='sign-up' type='submit' value="Sign up" />
       <a href='#' className='sign-in-google'> <img src={googleLogo} alt="googleLogo" /><span>Sign in with Google</span></a>
       <p>You don´t have an account yet? <Anchor onClick={renderRegister} className='link'>Sign Up</Anchor></p>
-      <p>Go back to <Anchor to='/' className='link'>home page</Anchor></p> 
+      <p>Go back to <Anchor to='/' className='link'>home page</Anchor></p>
     </form>
   )
 }

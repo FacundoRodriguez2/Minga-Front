@@ -38,7 +38,7 @@ export default function RegisterForm({renderLogin}) {
             try{
                 await axios.post(url,data)
                 
-                Swal.fire("Login Successful")
+                Swal.fire("Register Successful")
                 dataForm.current.reset()
               }catch (error) {
                 if (typeof error.response.data.message === 'string') {

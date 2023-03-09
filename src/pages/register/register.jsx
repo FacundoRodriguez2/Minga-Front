@@ -4,14 +4,14 @@ import Welcome from '../../components/welcome/welcome'
 import RegisterForm from '../../components/registerform/registerform'
 import Vilage from '../../images/vilage.svg'
 
-export default function Register() {
+export default function Register({renderLogin}) {
     
 
     return (
         <div className='register'>
             <div>
                 <Welcome />
-                <RegisterForm />
+                <RegisterForm renderLogin={renderLogin}/>
             </div>
             <div className='register-img'>
                 <img src={Vilage} alt="tokyo-village" />
