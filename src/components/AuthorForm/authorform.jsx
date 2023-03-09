@@ -27,8 +27,7 @@ export default function AuthorForm() {
         city: city,
         country: country,
         date: formInputs[3],
-        photo: formInputs[4],
-        user_id
+        photo: formInputs[4]
         }
 
         console.log(data)

@@ -9,7 +9,7 @@ import youtube from '../../images/Youtube.svg'
 export default function FooterNav() {
     return (
         <nav id='navfooter' >
-            <div class='pages'>
+            <div className='pages'>
                 <a>Home</a>
                 <a>Mangas</a>
             </div>
@@ -17,8 +17,8 @@ export default function FooterNav() {
                 <img src={logo} alt="logo" />
                 
             </div>
-            <div class='social-container'>
-                <div class='social'>
+            <div className='social-container'>
+                <div className='social'>
                     <a href="#"><img src={facebook} alt="" /></a>
                     <a href="#"><img src={twitter} alt="" /></a>
                     <a href="#"><img src={vimeo} alt="" /></a>

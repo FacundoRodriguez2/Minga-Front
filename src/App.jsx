@@ -8,7 +8,7 @@ import store from './store/store'
 
 function App() {
   useEffect(() => {
-    let url = `http://localhost:8080/auth/token`
+    let url = `http://localhost:8080/api/auth/token`
     let token = localStorage.getItem('token')
     if (token) {
     let headers = {headers:{'Authorization':`Bearer ${token}`}}

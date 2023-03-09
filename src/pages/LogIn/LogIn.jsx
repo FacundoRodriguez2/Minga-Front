@@ -1,16 +1,10 @@
 import React from 'react'
 import './LogIn.css'
 import LoginForm from '../../components/LoginForm/LoginForm'
-import RegisterFieldset from '../../components/registerfieldset/registerfieldset'
-import email from '../../images/@.svg'
-import lock from '../../images/lock1.svg'
-import Input from '../../components/input/input'
-import googleLogo from '../../images/Google.svg'
 import LogInimg from '../../images/LogIn.png'
-import { Link as Anchor } from 'react-router-dom'
 
 
-export default function LogIn({renderRegister, handleRender}) {
+export default function LogIn({renderRegister}) {
   return (
     <section className='log-in'>
       <div className='img-section'>
