@@ -1,20 +1,19 @@
 import "./cards.css"
-
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-
 import { Link } from "react-router-dom"
-import mangaActions from "../../../store/mangas/actions.js"
+import mangasActions from "../../../store/mangas/actions.js"
 import { useParams } from "react-router"
 
-const { get_mangas_from_author } = mangaActions
+const { get_mangas_from_author } = mangasActions
 
 const AuthorCards = () => {
     const [isToggled, setIsToggled] = useState(false)
     const store = useSelector((store) => store.mangas)
+    console.log(store)
     const mangas = store.mangas
     const dispatch = useDispatch()
-    const params = useParams()
+    const { id } = useParams()
 
     const handleClick = () => {
         setIsToggled(!isToggled)
@@ -22,25 +21,27 @@ const AuthorCards = () => {
 
     useEffect(() => {
         if (mangas.length === 0) {
-            dispatch(get_mangas_from_author(params.id))
+            dispatch(get_mangas_from_author({author_id: id}))
         }
-    })
+    }, [dispatch, id, mangas])
 
-    const mangasF = mangas?.filter((manga) => manga.author_id === params.id)
+    const mangasF = mangas.filter((manga) => manga.author_id === id)
 
     let mangasFiltrados = mangasF
-
-    console.log(mangasFiltrados)
 
     switch (isToggled) {
         case false:
             mangasFiltrados = [...mangasF].sort(
-                (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+                (a, b) => new Date (b.updatedAt
+) - new Date (a.updatedAt
+)
             )
             break
         case true:
             mangasFiltrados = [...mangasF].sort(
-                (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+                (a, b) => new Date (a.updatedAt
+) - new Date (b.updatedAt
+)
             )
             break
         default:
@@ -68,7 +69,7 @@ const AuthorCards = () => {
                               <Link to={`/manga/${manga._id}`} key={manga._id}>
                                   <img
                                       className="imgCard"
-                                      src={manga.photo}
+                                      src={manga.cover_photo}
                                       alt="manga"
                                   />
                               </Link>
@@ -85,7 +86,7 @@ const AuthorCards = () => {
                                   >
                                       <img
                                           className="imgCard"
-                                          src={manga.photo}
+                                          src={manga.cover_photo}
                                           alt="manga"
                                       />
                                   </Link>

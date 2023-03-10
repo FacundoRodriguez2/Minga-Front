@@ -1,8 +1,6 @@
 import axios from "axios"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-const API_URL = process.env.REACT_APP_API_URL
-
 const handleToken = () => {
     const BEARER_TOKEN = localStorage.getItem("token")
 
@@ -20,7 +18,7 @@ const get_mangas_from_author = createAsyncThunk(
     async ({ author_id }) => {
         try {
             let response = await axios.get(
-                `${API_URL}/mangas/authors/:author_id?${author_id}`,
+                `http://localhost:8080/api/mangas/authors/${author_id}?new=${true}`,
                 handleToken()
             )
             return {
@@ -36,6 +34,7 @@ const get_mangas_from_author = createAsyncThunk(
         }
     }
 )
+
 
 const mangaActions = {
     get_mangas_from_author

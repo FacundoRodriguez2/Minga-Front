@@ -1,5 +1,5 @@
 import React from "react"
-import "./AuthorMain.css"
+import "./main.css"
 
 
 const AuthorMain = ({children}) => { 

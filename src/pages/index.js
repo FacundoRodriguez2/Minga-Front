@@ -17,8 +17,10 @@ const router = createBrowserRouter([
         children: [
             { path: '/', element: <Index /> },
             { path: '/hero' , element: <Hero />},
-
             { path: '/auth' , element: <AuthForm />},
+            { path: '/author-form', element: <FormAuthor/> },
+            { path: '/company-form' , element: <FormCompany/> },
+            { path: '/author/:id', element: <Author/> },
         ]
     }, 
     
@@ -31,12 +33,9 @@ const router = createBrowserRouter([
             { path: '/manga-form' , element: <MangaForm /> },
             { path: '/signin' , element: <AuthForm state='login'/> },
             { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
-            { path: '/author-form'  , element: <FormAuthor/> },
-            { path: '/company-form' , element: <FormCompany/> },
-            { path: '/author/:id' , element: <Author/> }
-
         ]
     }
+
 ])
 
 export default router

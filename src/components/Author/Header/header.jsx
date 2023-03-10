@@ -1,10 +1,11 @@
 import "./header.css"
-
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-
 import authorActions from "../../../store/authors/actions.js"
 import { useParams } from "react-router"
+import iconGps from "../../../images/iconGps.png"
+import iconDate from "../../../images/iconDate.png"
+import iconEdit from "../../../images/iconEdit.png"
 
 const { get_author } = authorActions
 
@@ -12,24 +13,26 @@ const AuthorHeader = () => {
     const store = useSelector((store) => store.author)
     const authors = store.authors
     const author = store.authors[0]
+    console.log(author)
     const dispatch = useDispatch()
     const params = useParams()
 
     useEffect(() => {
         if (authors.length === 0) {
-            dispatch(get_author(params.id))
+            dispatch(get_author({_id: params.id}))
         }
     })
 
     return (
         <>
+          <div className="containerGeneral">
             {authors.length > 0 && (
                 <div className="containerHeader">
                     <div className="container2">
                         <div className="fotoAuthor">
                             <img
                                 className="imgAuthor"
-                                src="https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
+                                src={author.photo}
                                 alt="autora"
                             />
                         </div>
@@ -42,7 +45,7 @@ const AuthorHeader = () => {
                                     <p className="localidad p-author">
                                         <img
                                             className="iconLocalidad"
-                                            src="../../iconUbicacion.png"
+                                            src={iconGps}
                                             alt="icono localidad"
                                         />
                                         {author.city}, {author.country}
@@ -53,10 +56,10 @@ const AuthorHeader = () => {
                                             <>
                                                 <img
                                                     className="iconCumple"
-                                                    src="../../iconCumpleaños.png"
+                                                    src={iconDate}
                                                     alt="icono cumpleaños"
                                                 />
-                                                {author.date}
+                                                {author.date.slice(0, 10)}
                                             </>
                                         )}
                                     </p>
@@ -64,7 +67,7 @@ const AuthorHeader = () => {
                                 <div>
                                     <img
                                         className="icon-editar"
-                                        src="../../editar-documento.png"
+                                        src={iconEdit}
                                         alt="editar documento"
                                     />
                                 </div>
@@ -72,13 +75,16 @@ const AuthorHeader = () => {
                         </div>
                     </div>
                     <p className="descripcionAuthor">
-                        Estudiante de programación, fanático de minga. Acuario,
-                        creo en Dios y es Argentino...{author.descripcion}
+                        {author.descriptions}
                     </p>
                 </div>
             )}
+          </div>
         </>
+        
     )
 }
 
 export default AuthorHeader
+
+

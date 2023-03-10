@@ -6,7 +6,6 @@ const store = configureStore({
     reducer: {
         author: authorReducer,
         mangas: mangaReducer
-        
     },
 })
 
