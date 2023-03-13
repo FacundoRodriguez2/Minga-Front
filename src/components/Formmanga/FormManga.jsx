@@ -5,7 +5,6 @@ import "./formmanga.css"
 import MangaSelect from '../Mangaselect/MangaSelect'
 
 
-
 export default function FormManga() {
 
  let title = useRef()
@@ -29,7 +28,6 @@ export default function FormManga() {
        alert("Manga Successfully Created")
 
      } catch (error) {
-     
        console.log(error);
      }
      event.target.reset()

@@ -1,4 +1,3 @@
-import AuthorForm from "./AuthorForm/authorform.js"
 import { createBrowserRouter } from "react-router-dom";
 import Hero from "./hero/hero";
 import IndexLayout from "../layouts/IndexLayout/IndexLayout";
@@ -7,7 +6,9 @@ import Index from "./index/index";
 import AuthForm from './AuthForm/AuthForm'
 import MangaForm from "./Mangaform/MangaForm";
 import ChaptherForm from "./ChapterForm/ChapterForm";
-import LogIn from "./LogIn/LogIn";
+import FormAuthor from "./AuthorForm/AuthorForm";
+import FormCompany from "./CompanyForm/companyForm";
+import Chapters from "./Chapters/Chapters";
 
 const router = createBrowserRouter([
     { 
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
         element: <IndexLayout /> , 
         children: [
             { path: '/', element: <Index /> },
-            { path: '/hero' , element: <Hero />}
+            { path: '/hero' , element: <Hero />},
+            { path: '/auth' , element: <AuthForm />},
         ]
     }, 
     
@@ -23,19 +25,18 @@ const router = createBrowserRouter([
         path: '/' , 
         element: <MainLayout /> , 
         children: [
-            { path: '/register' , element: <AuthForm /> },
-            { path: '/signin' , element: <AuthForm /> },
+
+            { path: '/register' , element: <AuthForm state='register'/> },
             { path: '/manga-form' , element: <MangaForm /> },
-            { path: '/signin' , element: <LogIn /> },
-            { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> }
-
+            { path: '/signin' , element: <AuthForm state='login'/> },
+            { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
+            { path: '/author-form'  , element: <FormAuthor/> },
+            { path: '/company-form' , element: <FormCompany/> },
+            { path: '/chapters/:id/:page' , element: <Chapters/> }
+            
+            
         ]
-    },
-    { 
-        path: '/author-form' , 
-        element: <AuthorForm/> 
-    },
-
+    }
 ])
 
 export default router
