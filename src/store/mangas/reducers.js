@@ -3,7 +3,8 @@ import { createReducer } from "@reduxjs/toolkit"
 
 const {
 
-    get_mangas_from_author
+    get_mangas_from_author,
+    read_mangas
 
 } = mangaActions
 
@@ -28,6 +29,16 @@ const mangaReducer = createReducer(initialState, (builder) => {
             }
             return newState
         })
+        .addCase(
+            read_mangas.fulfilled,
+            (state, action) => {
+                let newState = {
+                    ...state,
+                    mangas: action.payload.mangas
+                }
+                return newState
+            }
+        )
 })
 
 export default mangaReducer
