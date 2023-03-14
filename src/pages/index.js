@@ -9,6 +9,7 @@ import ChaptherForm from "./ChapterForm/ChapterForm";
 import FormAuthor from "./AuthorForm/AuthorForm";
 import FormCompany from "./CompanyForm/companyForm";
 import Author from "./Author/author";
+import Mangas from './Mangas/Mangas'
 
 const router = createBrowserRouter([
     { 
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
             { path: '/register' , element: <AuthForm state='register'/> },
             { path: '/manga-form' , element: <MangaForm /> },
             { path: '/signin' , element: <AuthForm state='login'/> },
+            { path: '/mangas/:page' , element: <Mangas /> },
             { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
         ]
     }
