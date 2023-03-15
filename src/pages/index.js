@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             { path: '/manga-form' , element: <MangaForm /> },
             { path: '/signin' , element: <AuthForm state='login'/> },
             { path: '/chapter-form/:manga_id' , element: <ChapterForm /> },
-            { path: '/manga/:id' , element: <Manga/> }
+            { path: '/manga/:id/:page' , element: <Manga/> }
         ]
     }
 

@@ -16,13 +16,18 @@ const initialState = {
     limit: 10,
     order: "desc",
     search: "",
+    title:"",
+    description:"",
+    category:"",
+    cover_photo:"",
+    
 }
 
 const mangaReducer = createReducer(initialState, (builder) => {
     builder
         .addCase(get_mangas_from_author.fulfilled, (state, action) => {
             let newState = {
-                manga: state.manga,
+                ...state,
                 mangas: action.payload.response.mangas,
                 message: action.payload.message,
             }
@@ -35,10 +40,15 @@ const mangaReducer = createReducer(initialState, (builder) => {
             return newState
         })
         .addCase(get_manga.fulfilled, (state, action) => {
+            //console.log(action.payload.response.manga)
             let newState = {
-                manga: state.manga,
-                mangas: action.payload.response.mangas,
-                message: action.payload.message,
+                ...state,
+                title: action.payload.response.manga.title,
+                description:action.payload.response.manga.description,
+                cover_photo:action.payload.response.manga.cover_photo,
+                category:action.payload.category,
+                company:action.payload.company
+                
             }
             return newState
         })

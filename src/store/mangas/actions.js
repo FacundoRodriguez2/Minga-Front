@@ -42,13 +42,16 @@ const get_manga = createAsyncThunk("get_manga", async ({_id}) => {
             `http://localhost:8080/api/mangas/${_id}`,
             handleToken()
         )
+        //console.log(response.data.response)
         return {
-            response: { mangas: response.data },
-            message: "manga obtained",
+            response: { manga: response.data.response },
+            category: response.data.response.category_id.name,
+            company:response.data.response.company_id.name,
+            message: "manga obtained"
         } 
     } catch (error) {
         return {
-            response: { mangas: error.response.data },
+            response: { manga: error.response.data },
             message: "error obtained manga",
         }
     }
