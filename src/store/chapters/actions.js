@@ -15,21 +15,17 @@ const handleToken = () => {
 
 const get_chapters= createAsyncThunk(
   "get_chapters",
-  async({manga_id,limit}) =>{
-    if(limit===undefined){
-      limit=4;
-    }
+  async({manga_id,page}) =>{
     try{
-      const response =await axios.get(
-
-        `http://localhost:8080/api/chapters?manga_id=${manga_id}&limit=${limit}}`,
+      const response =await axios.get(`http://localhost:8080/api/chapters?manga_id=${manga_id}&page=${page}`,
         handleToken()
       )
+
       console.log("get_chapters response: ",response)
       return{
-          response:{ chapters: response.data},
+          chapter: response.data.response,
           message: "Chapter/s Found",
-          limit:limit
+          page:page
       }
     }
     catch (error) {
@@ -38,7 +34,10 @@ const get_chapters= createAsyncThunk(
                 response: { chapters: error.response.data},
                 message: "Chapter not found",
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c61531298cef76c88af9ff361c75f5d1ac368e2f
     }
   }
 )

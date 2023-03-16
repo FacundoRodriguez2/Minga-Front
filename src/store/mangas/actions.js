@@ -42,24 +42,35 @@ const get_manga = createAsyncThunk("get_manga", async ({_id}) => {
             `http://localhost:8080/api/mangas/${_id}`,
             handleToken()
         )
+        //console.log(response.data.response)
         return {
-            response: { mangas: response.data },
-            message: "manga obtained",
+            response: { manga: response.data.response },
+            category: response.data.response.category_id.name,
+            company:response.data.response.company_id.name,
+            message: "manga obtained"
         } 
     } catch (error) {
         return {
-            response: { mangas: error.response.data },
+            response: { manga: error.response.data },
             message: "error obtained manga",
         }
     }
 })
-
-
+const read_mangas = createAsyncThunk(
+    'read_mangas',
+    async ({ page, inputText, categories, order, headers }) => {
+        try{
+            let response = await axios.get("http://localhost:8080/api/mangas/?page="+page+"&title="+inputText.trim()+"&category="+categories+"&order="+order,headers)
+            return { mangas: response.data.mangas }
+        }catch(error){
+            return { mangas: '' }
+        }
+    }
+) 
 
 
 const mangaActions = {
-    get_mangas_from_author,
-    get_manga
+    get_mangas_from_author, read_mangas,get_manga
 }
 
 export default mangaActions
