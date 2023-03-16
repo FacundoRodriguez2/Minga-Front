@@ -13,13 +13,14 @@
 
 .mangas .mangas-displayed .mangas-cards .card-anchor:hover{
     transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
 }
 
 .mangas .mangas-displayed .mangas-cards .card{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 402px;
+    width: 293px;
     height: 178px;
     background: #FFFFFF;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);

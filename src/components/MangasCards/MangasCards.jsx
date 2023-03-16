@@ -18,7 +18,6 @@ export default function MangasCards() {
 
     const { read_mangas } = mangaActions
     const dispatch = useDispatch()
-    console.log(text)
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
