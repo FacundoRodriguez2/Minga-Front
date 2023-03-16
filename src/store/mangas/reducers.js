@@ -4,7 +4,9 @@ import { createReducer } from "@reduxjs/toolkit"
 const {
 
     get_mangas_from_author,
-    get_manga
+    get_manga,
+    read_mangas
+
 } = mangaActions
 
 const initialState = {

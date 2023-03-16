@@ -10,6 +10,7 @@ import FormAuthor from "./AuthorForm/AuthorForm";
 import FormCompany from "./CompanyForm/companyForm";
 import Manga from './Manga/Manga';
 import Author from "./Author/author";
+import Mangas from './Mangas/Mangas'
 
 const router = createBrowserRouter([
     { 
@@ -34,7 +35,9 @@ const router = createBrowserRouter([
             { path: '/manga-form' , element: <MangaForm /> },
             { path: '/signin' , element: <AuthForm state='login'/> },
             { path: '/chapter-form/:manga_id' , element: <ChapterForm /> },
-            { path: '/manga/:id/:page' , element: <Manga/> }
+            { path: '/manga/:id/:page' , element: <Manga/> },
+            { path: '/mangas/:page' , element: <Mangas /> },
+            { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
         ]
     }
 

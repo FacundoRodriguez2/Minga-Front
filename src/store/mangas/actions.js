@@ -56,13 +56,21 @@ const get_manga = createAsyncThunk("get_manga", async ({_id}) => {
         }
     }
 })
-
-
+const read_mangas = createAsyncThunk(
+    'read_mangas',
+    async ({ page, inputText, categories, order, headers }) => {
+        try{
+            let response = await axios.get("http://localhost:8080/api/mangas/?page="+page+"&title="+inputText.trim()+"&category="+categories+"&order="+order,headers)
+            return { mangas: response.data.mangas }
+        }catch(error){
+            return { mangas: '' }
+        }
+    }
+) 
 
 
 const mangaActions = {
-    get_mangas_from_author,
-    get_manga
+    get_mangas_from_author, read_mangas,get_manga
 }
 
 export default mangaActions
