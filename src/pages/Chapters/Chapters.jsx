@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import "./chapters.css"
 
 
+
+
 export default function Chapters() {
     let url = "http://localhost:8080/api/chapters/"
     let {id, page} = useParams()
@@ -17,13 +19,13 @@ export default function Chapters() {
 
     useEffect(
         () => {
-            axios.get(`${url}${id}`)
+            axios.get(url + id)
             .then(res => {
                 setChapter(res.data.chapter)
                 setNext(res.data.next)
                 setPrev(res.data.prev)
                 console.log(res.data)
-                 })
+            })
                  .catch(e => console.log(e))
         }, 
         []
@@ -32,11 +34,12 @@ export default function Chapters() {
     //  console.log(next)
     let handlePrev = () => {
         setIndex(index - 1)
-        navigate(`/chapters/${id}/${index - 1}`)
-        if (index <= 0 && chapter.order === 1) {
+          navigate(`/chapters/${id}/${index - 1}`)
+        if ( index <= 0 && chapter.order == 1) {
             navigate(`/manga/${chapter.manga_id}/${1}`)
         }
-        else {
+
+        else if (index <= 0) {
             navigate(`/chapters/${prev}/${0}`)
             window.location.reload(true)
         }
@@ -46,7 +49,7 @@ export default function Chapters() {
     let handleNext = () => {
         setIndex(index + 1)
         navigate(`/chapters/${id}/${index + 1}`)
-        if (index >= chapter.pages.length -1) {
+        if (index >= chapter.pages.length - 1) {
             navigate(`/chapters/${next}/${0}`)
             window.location.reload(true)
      

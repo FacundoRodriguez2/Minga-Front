@@ -28,6 +28,7 @@ export default function FormManga() {
        alert("Manga Successfully Created")
 
      } catch (error) {
+     
        console.log(error);
      }
      event.target.reset()
