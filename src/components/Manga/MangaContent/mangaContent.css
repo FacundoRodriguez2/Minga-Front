@@ -120,19 +120,3 @@
   }
 
 }
-@media (min-width:769px){
-  .chapterimg{
-      width: 12%;
-  }
-  .btn-read{
-      width: 120px;
-      height: 50px;
-  }
-  .mangadesc{
-    width: 100vw;
-  }
-  .mangadesc p{
-    width: 100%;
-  }
-  
-}
