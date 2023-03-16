@@ -1,5 +1,6 @@
 import axios from "axios"
 import { createAsyncThunk } from "@reduxjs/toolkit"
+import { async } from "q"
 
 const handleToken = () => {
     const BEARER_TOKEN = localStorage.getItem("token")
@@ -35,6 +36,26 @@ const get_mangas_from_author = createAsyncThunk(
     }
 )
 
+const get_manga = createAsyncThunk("get_manga", async ({_id}) => {
+    try {
+        let response = await axios.get(
+            `http://localhost:8080/api/mangas/${_id}`,
+            handleToken()
+        )
+        //console.log(response.data.response)
+        return {
+            response: { manga: response.data.response },
+            category: response.data.response.category_id.name,
+            company:response.data.response.company_id.name,
+            message: "manga obtained"
+        } 
+    } catch (error) {
+        return {
+            response: { manga: error.response.data },
+            message: "error obtained manga",
+        }
+    }
+})
 const read_mangas = createAsyncThunk(
     'read_mangas',
     async ({ page, inputText, categories, order, headers }) => {
@@ -49,7 +70,7 @@ const read_mangas = createAsyncThunk(
 
 
 const mangaActions = {
-    get_mangas_from_author, read_mangas
+    get_mangas_from_author, read_mangas,get_manga
 }
 
 export default mangaActions
