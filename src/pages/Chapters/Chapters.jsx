@@ -28,7 +28,7 @@ export default function Chapters() {
             })
                  .catch(e => console.log(e))
         }, 
-        []
+        [id, page]
     )
 //   console.log(chapter)
     //  console.log(next)
@@ -36,7 +36,7 @@ export default function Chapters() {
         setIndex(index - 1)
           navigate(`/chapters/${id}/${index - 1}`)
         if ( index <= 0 && chapter.order == 1) {
-            navigate(`/manga/${chapter.manga_id}/${1}`)
+            navigate(`/mangas/${0}`)
         }
 
         else if (index <= 0) {
