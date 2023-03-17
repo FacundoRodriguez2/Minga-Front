@@ -5,7 +5,6 @@ import "./formmanga.css"
 import MangaSelect from '../Mangaselect/MangaSelect'
 import apiUrl from '../../url'
 
-
 export default function FormManga() {
 
  let title = useRef()
