@@ -2,11 +2,11 @@ import React from 'react'
 import "./mangaselect.css"
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-
+import apiUrl from '../../url'
 
 export default function MangaSelect(props) {
 
-    let url = "http://localhost:8080/api/mangas"
+    let url = `${apiUrl}mangas`
 
     let [categories, setCategories] = useState([])
 
