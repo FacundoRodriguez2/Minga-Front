@@ -8,7 +8,7 @@ import categoriesActions from '../../store/Categories/actions'
 import sortActions from '../../store/Sort/actions'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-
+import apiUrl from '../../url'
 let categoriesCheck = []
 let order = 1
 
@@ -19,7 +19,7 @@ export default function MangasType() {
 
     let checkedCategories = useSelector(store => store.categories.categories)
 
-    let categoriesUrl = "http://localhost:8080/api/categories"
+    let categoriesUrl = `${apiUrl}categories`
 
     useEffect(() => {
         axios.get(categoriesUrl).then(e => setCategories(e.data.categories))

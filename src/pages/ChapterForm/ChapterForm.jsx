@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { computeHeadingLevel } from "@testing-library/react";
+import apiUrl from "../../url"
 
 export default function ChaptherForm() {
     let dataForm = useRef()
@@ -26,7 +27,7 @@ export default function ChaptherForm() {
             manga_id,
         }
         console.log(data)
-        let url = 'http://localhost:8080/api/chapters'
+        let url = `${apiUrl}chapters`
         let token = localStorage.getItem('token')
         //let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDI3Nzk4ODljZmViZDI0M2FlMjA5OCIsImlhdCI6MTY3Nzg4MzY2NCwiZXhwIjoxNjc3OTcwMDY0fQ.WZyxDT1BHvV9CaKee7BHD7ZseFZwSRzig8D-UFRFaLg"
         let headers = {headers:{'Authorization':`Bearer ${token}`}}

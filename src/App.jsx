@@ -5,10 +5,10 @@ import { Provider } from 'react-redux'
 import { useEffect } from 'react'
 import axios from 'axios'
 import store from './store/store'
-
+import apiUrl from './url'
 function App() {
   useEffect(() => {
-    let url = `http://localhost:8080/api/auth/token`
+    let url = `${apiUrl}auth/token`
     let token = localStorage.getItem('token')
     if (token) {
     let headers = {headers:{'Authorization':`Bearer ${token}`}}

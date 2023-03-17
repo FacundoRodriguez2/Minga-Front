@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import image from "../../images/image.png"
-
+import apiUrl from "../../url";
 
 export default function companyForm() {
     let dataForm = useRef()
@@ -30,7 +30,7 @@ export default function companyForm() {
         }
 
         console.log(data)
-        let url = 'http://localhost:8080/api/companies'
+        let url = `${apiUrl}companies`
         let token = localStorage.getItem('token')
         console.log(token)
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
