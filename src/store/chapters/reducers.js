@@ -3,7 +3,7 @@ import { createReducer } from "@reduxjs/toolkit"
 
 
 const{
- 
+
   get_chapters
 
 }=chapterActions
@@ -30,6 +30,4 @@ const chapterReducer = createReducer(initialState, (builder) => {
     //   }
     //   return newState
     })
-
-
 export default chapterReducer

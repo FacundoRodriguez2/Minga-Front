@@ -12,6 +12,7 @@ import { Link as Anchor } from 'react-router-dom'
 export default function MangasCards() {
     let text = useSelector(store => store.text.text)
     let mangas = useSelector(store => store.mangas.mangas)
+    console.log(mangas)
     let categories = useSelector(store => store.categories.categories)
     let order = useSelector(store => store.order.order)
     let page = useParams().page

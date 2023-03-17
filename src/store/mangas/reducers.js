@@ -60,9 +60,14 @@ const mangaReducer = createReducer(initialState, (builder) => {
             }
             return newState
         })
-
-
-
+        .addCase(read_mangas.fulfilled,(state, action) => {
+                let newState = {
+                    ...state,
+                    mangas: action.payload.mangas
+                }
+                return newState
+            }
+        )
 })
 
 

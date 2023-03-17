@@ -3,11 +3,11 @@ import './navBody.css'
 import { Link as Anchor } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-
+import apiUrl from '../../url'
 export default function NavBody({handleRender}) {
     let token = localStorage.getItem('token')
     let headers = {headers:{'Authorization':`Bearer ${token}`}}
-    let url = 'http://localhost:8080/api/auth/signout'
+    let url = `${apiUrl}auth/signout` 
 
     async function handleLogout(){
         try{
