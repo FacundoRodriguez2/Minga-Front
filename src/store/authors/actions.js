@@ -27,8 +27,61 @@ const get_author = createAsyncThunk("get_author", async ({_id}) => {
         }
     }
 })
+const get_me = createAsyncThunk("get_me", async () => {
+  try {
+      const response = await axios.get(`http://localhost:8080/api/authors/me`, handleToken())
+      return {
+          response: { author: response.data },
+          message: "Author found",
+      }
+  } catch (error) {
+      return {
+          response: { author: error.response.data },
+          message: "Author not found",
+      }
+  }
+})
+const edit_author = createAsyncThunk(
+    "edit_author",
+    async ({id, values}) => {
+        try{
+            let response = await axios.put(`http://localhost:8080/api/authors/${id}`, values, handleToken())
+            console.log(response)
+            return{
+                response: {author: response.data},
+                message: "Author updated successfully"
+            }
+        }catch(error){
+            console.log(error)
+            return{
+                response: {author: error.response.data},
+                message: "Author update failed"
+            }
+        }
+    }
+)
+
+const delete_author = createAsyncThunk(
+    "delete_author",
+    async (id) => {
+      try {
+        const response = await axios.put(`http://localhost:8080/api/authors/${id}`, { active: false }, handleToken());
+        return {
+          response: { authors: response.data },
+          message: "Author deleted successfully"
+        };
+      } catch (error) {
+        return {
+          response: { authors: error.response.data },
+          message: "Error deleting author"
+        };
+      }
+    }
+  );
+  
 
 
-const authorActions = { get_author }
+
+const authorActions = { get_author, edit_author, delete_author, get_me }
 
 export default authorActions
