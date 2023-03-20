@@ -1,7 +1,5 @@
 import React, { useEffect } from "react"
-
 import Cards from "../../components/Author/Cards/cards"
-import Header from "../../components/Author/Header/header"
 import Main from "../../components/Author/Main/main"
 import { useNavigate } from "react-router"
 
@@ -16,7 +14,6 @@ const Author = () => {
 
     return (
         <>
-            <Header />
             <Main>
                 <Cards />
             </Main>

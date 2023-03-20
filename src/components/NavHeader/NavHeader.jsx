@@ -3,7 +3,7 @@ import './navHeader.css'
 import Goback from "../../images/goback.svg"
 import axios from 'axios'
 import { useEffect } from 'react'
-
+import apiUrl from '../../url'
 export default function NavHeader({handleRender}) {
     let token = localStorage.getItem('token')
     
@@ -24,7 +24,7 @@ export default function NavHeader({handleRender}) {
     let photo = user.photo
 
     useEffect(() => {
-        let url = `http://localhost:8080/api/auth/token`
+        let url = `${apiUrl}auth/token`
         if (token) {
             let headers = {headers:{'Authorization':`Bearer ${token}`}}
             axios.post(url,null,headers)
