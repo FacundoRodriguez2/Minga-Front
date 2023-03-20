@@ -34,7 +34,7 @@ h1{
     font-weight: 700;
     font-size: 64px;
     line-height: 78px;
-    margin-bottom: 2rem;
+    margin-bottom: 7rem;
 }
 
 .containerInferior{
@@ -42,7 +42,7 @@ h1{
     flex-direction: row;
     width: 93%;
     border-radius: 16px;
-    height: 65vh;
+    height: 74vh;
     margin-top: -10rem;
     background-color: white;
 }
@@ -132,7 +132,8 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    padding: 0px;
 }
 
 .form-signup-row{
@@ -163,7 +164,14 @@ h1{
     font-size: 20px;
     color: #EBEBEB;
     text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
+
+.save:active {
+  transform: scale(0.9);
+}
+
 
 .delete{
     margin: 0.7rem;
@@ -178,6 +186,12 @@ h1{
     font-size: 20px;
     color: #EE8380;
     text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.delete:active {
+  transform: scale(0.9);
 }
 
 @media (min-width: 319px) and (max-width: 769px) {

@@ -43,10 +43,9 @@ const get_me = createAsyncThunk("get_me", async () => {
 })
 const edit_author = createAsyncThunk(
     "edit_author",
-    async ({id, values}) => {
+    async ({values}) => {
         try{
-            let response = await axios.put(`http://localhost:8080/api/authors/${id}`, values, handleToken())
-            console.log(response)
+            let response = await axios.put(`http://localhost:8080/api/authors/me`, values, handleToken())
             return{
                 response: {author: response.data},
                 message: "Author updated successfully"
@@ -63,9 +62,9 @@ const edit_author = createAsyncThunk(
 
 const delete_author = createAsyncThunk(
     "delete_author",
-    async (id) => {
+    async () => {
       try {
-        const response = await axios.put(`http://localhost:8080/api/authors/${id}`, { active: false }, handleToken());
+        const response = await axios.put(`http://localhost:8080/api/authors/me`, { active: false }, handleToken());
         return {
           response: { authors: response.data },
           message: "Author deleted successfully"

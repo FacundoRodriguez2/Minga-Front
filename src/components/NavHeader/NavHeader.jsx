@@ -9,14 +9,17 @@ export default function NavHeader({handleRender}) {
     
     if(!token){
         localStorage.setItem('user',JSON.stringify({
+            is_author: false,
             name: "",
+            last_name: "",
             mail: "",
             photo: ""
         }))
     }
-
+    
     let user = JSON.parse(localStorage.getItem('user'))
     let name = user.name
+    let last_name = user.last_name
     let mail = user.mail
     let photo = user.photo
 
@@ -31,16 +34,16 @@ export default function NavHeader({handleRender}) {
         <div className='navHeader'>
             {
                 token ? <div className='picAndText'>
-                        <img className='profilePic' src={photo} alt='profile-picture' />
+                        <img className='profilePic' src={photo} alt='profile' />
                         <div className='nameAndMail'>
-                            <h2>{name} </h2>
+                            <h2>{name} {last_name}</h2>
                             <p> {mail} </p>
                         </div>
                         </div>
                         : ""
             }
             <div onClick={handleRender} className='closeBtn'>
-                <img src={Goback} />
+                <img src={Goback} alt="cierre" />
             </div>
         </div>
     )

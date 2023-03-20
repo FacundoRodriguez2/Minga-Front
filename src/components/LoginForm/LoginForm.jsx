@@ -35,8 +35,10 @@ export default function LoginForm({ renderRegister }) {
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('user', JSON.stringify({
             name: res.data.user.name,
+            last_name: res.data.user.last_name,
             mail: res.data.user.mail,
             photo: res.data.user.photo,
+            is_author: res.data.user.is_author
           }))
           setInterval(() => window.location.href = '/', 1000)
         })

@@ -1,47 +1,95 @@
 import './profile.css'
+import { useNavigate } from "react-router"
 import { useDispatch, useSelector } from "react-redux"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import authorActions from "../../store/authors/actions"
 import iconGps from "../../images/iconGps.png"
 import iconDate from "../../images/iconDate.png"
+import Swal from 'sweetalert2'
 
-const { get_me, edit_author } = authorActions
+const { get_me, edit_author, delete_author } = authorActions
 
 function AuthorProfile() {
-    const store = useSelector((store) => store.author)
-    const author = store.author
+    const authorStore = useSelector((store) => store.author)
+    const author = authorStore.author
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const authorName = useRef(null);
     const authorLastName = useRef(null);
     const authorCity = useRef(null);
     const authorCountry = useRef(null);
     const authorDate = useRef(null);
     const authorPhoto = useRef(null);
-    const userStore = useSelector((store) => store.user)
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const authorData = {
-        name: authorName.current.value,
-        lastName: authorLastName.current.value,
-        city: authorCity.current.value,
-        country: authorCountry.current.value,
-        date: authorDate.current.value,
-        photo: authorPhoto.current.value,
-        user_id: userStore.user?.response?.user.id,
-        active: false,
-      };
-      await dispatch(edit_author(authorData));
-    };
-
-
+    const user = JSON.parse(localStorage.getItem('user'))
+    const [loaded, setLoaded] = useState(true);
 
     useEffect(() => {
-        if (!store.loading && author.length === 0) {
-            dispatch(get_me())
+        dispatch(get_me());      
+    },[loaded]);
+
+    const sendEdit = async (e) => {
+        e.preventDefault();
+
+        let values = {};
+        if (authorName.current.value) {
+            values.name = authorName.current.value;
         }
-    }, [author, dispatch, store.loading])
-      
+        if (authorLastName.current.value) {
+            values.last_name = authorLastName.current.value;
+        }
+        if (authorCity.current.value) {
+            values.city = authorCity.current.value;
+        }
+        if (authorCountry.current.value) {
+            values.country = authorCountry.current.value;
+        }
+        if (authorDate.current.value) {
+            values.date = authorDate.current.value;
+        }
+        if (authorPhoto.current.value) {
+            values.photo = authorPhoto.current.value;
+        }
+
+        try {
+            await dispatch(edit_author({ values }));
+            Swal.fire({
+              icon: 'success',
+              title: 'Profile updated successfully',
+              showConfirmButton: true,
+              confirmButtonText: "Acept"
+            });
+            setLoaded(!loaded)
+          } catch (error) {
+            console.log("Error updating author");
+          }
+        }
+        const sendDelete = async (e) => {
+            e.preventDefault();
+            try {
+                await Swal.fire({
+                    title: 'Are your sure you want to delete?',
+                    text: 'This action can not be undone',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'No',
+                    confirmButtonText: "Yes, i'm sure"
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        await dispatch(delete_author());
+                        localStorage.setItem('user', JSON.stringify({...user, is_author: false}))
+                        navigate("/", { replace: true });
+                        await Swal.fire({
+                            title: ':( See you soon, we will miss you',
+                            confirmButtonText: "Acept"
+                    })
+                    }
+                })
+            } catch (error) {
+                console.log("Error deleting author");
+            }
+        }
+
         return(
             <>
             <div className='containerGeneral'>
@@ -55,7 +103,7 @@ function AuthorProfile() {
                         <div className='profilePhoto'>
                         <img className='photoProfile' src={author.photo} alt="foto" />
                         </div>
-                            <form className='form' onSubmit={handleSubmit}>
+                            <form className='form'>
                             <div className="form-row">
                                 <div className="form-signup-row">
                                 <input
@@ -63,7 +111,7 @@ function AuthorProfile() {
                                     autoComplete="false"
                                     type="text"
                                     className="form-control"
-                                    placeholder='Name'
+                                    placeholder={author.name}
                                     id="name"
                                 />
                                 </div>
@@ -74,7 +122,17 @@ function AuthorProfile() {
                                     type="text"
                                     className="form-control"
                                     id="lastName"
-                                    placeholder='Last Name'
+                                    placeholder={author.last_name}
+                                />
+                                </div>
+                                <div className="form-signup-row">
+                                <input
+                                    ref={authorCity}
+                                    autoComplete="false"
+                                    type="text"
+                                    className="form-control"
+                                    id="city"
+                                    placeholder={author.city}
                                 />
                                 </div>
                                 <div className="form-signup-row">
@@ -84,7 +142,7 @@ function AuthorProfile() {
                                     type="text"
                                     className="form-control"
                                     id="country"
-                                    placeholder='City, Country'
+                                    placeholder={author.country}
                                 />
                                 </div>
                                 <div className="form-signup-row">
@@ -94,7 +152,7 @@ function AuthorProfile() {
                                     type="date"
                                     className="form-control"
                                     id="date"
-                                    placeholder='Date'
+                                    placeholder={author.date}
                                     />
                                 </div>
                                 <div className="form-signup-row">
@@ -109,8 +167,10 @@ function AuthorProfile() {
                                 </div>
                                 </div>
                             <div>
-                                <input className="save" type="submit" value="Save" />
-                                <input className="delete" type="submit" value="Delete Account" />
+                                <input className="save" type="button" 
+                                onClick={sendEdit} 
+                                value="Save" />
+                                <input className="delete" type="button" onClick={sendDelete} value="Delete Account" />
                             </div>
                             </form>
                         </div>
@@ -136,9 +196,6 @@ function AuthorProfile() {
                                             </>
                                         )}</p>
                                     </div>
-
-
-                                    
                                 </div>
 
                         </div>
@@ -148,14 +205,6 @@ function AuthorProfile() {
                 </div>
 
             </div>
-
-
-
-
-
-
-
-
         </>
     )
 }
