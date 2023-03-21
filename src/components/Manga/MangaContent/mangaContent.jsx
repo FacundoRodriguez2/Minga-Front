@@ -10,7 +10,7 @@ import iconcomment from '../../../images/iconcomment.svg'
 const { get_manga } = mangaActions
 const {get_chapters}=chapterActions
 
-const mangaContent=() => {
+const MangaContent=() => {
   const [isToggled, setIsToggled] = useState(false) 
   const data = useSelector((store) => store.mangas)
   const datachapter=useSelector((store)=> store.chapters.chapter)
@@ -99,4 +99,4 @@ const mangaContent=() => {
 
 }
 
-export default mangaContent
+export default MangaContent

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router"
 import MangaHeader from '../../components/Manga/MangaHeader/mangaHeader'
 import Main from '../../components/Manga/Main/main'
 import MangaMain from '../../components/Manga/MangaMain/mangaMain'
-import MangaContent from "../../components/Manga/MangaContent/mangaContent"
+import MangaContent from "../../components/Manga/MangaContent/MangaContent"
 
 const Manga = () => {
   const navigate = useNavigate()
