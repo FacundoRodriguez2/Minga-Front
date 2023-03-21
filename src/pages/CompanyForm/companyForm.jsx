@@ -1,5 +1,5 @@
 import React from 'react'
-import CompanyForm from '../../components/CompanyForm/companyform'
+import CompanyForm from '../../components/CompanyForm/CompanyForm'
 
 function FormCompany() {
   return (

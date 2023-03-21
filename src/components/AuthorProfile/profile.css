@@ -42,8 +42,8 @@ h1{
     flex-direction: row;
     width: 93%;
     border-radius: 16px;
-    height: 74vh;
-    margin-top: -10rem;
+    height: 70vh;
+    margin-top: -9rem;
     background-color: white;
 }
 
@@ -68,8 +68,8 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 20rem;
-    width: 20rem;
+    height: 19rem;
+    width: 19rem;
 }
 
 .photoProfile{
@@ -116,7 +116,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 80%;
     height: 100%;
 }
@@ -124,16 +124,17 @@ h1{
 .form-row{
     display: flex;
     flex-direction: column;
-    width: 23rem;
-    gap: 1rem;
+    width: 19rem;
 }
 
 .form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1rem;
+    margin: 0px;
     padding: 0px;
+    height: 100%;
+    width: 19rem;
 }
 
 .form-signup-row{
@@ -152,9 +153,9 @@ h1{
 }
 
  .save{
-    margin: 0.7rem;
-    width: 20rem;
-    height: 7.403vh;
+    margin-bottom: 0.7rem;
+    width: 18rem;
+    height: 3rem;
     background-color: #34D399;
     border-radius: 50000px;
     border: none;
@@ -174,9 +175,8 @@ h1{
 
 
 .delete{
-    margin: 0.7rem;
-    width: 20rem;
-    height: 7.403vh;
+    width: 18rem;
+    height: 3rem;
     background: #FBDDDC;
     border-radius: 50000px;
     border: none;
