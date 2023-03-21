@@ -8,7 +8,7 @@ import { Link as Anchor } from 'react-router-dom'
 import { useRef } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-
+import apiUrl from '../../url'
 export default function LoginForm({ renderRegister }) {
   let dataForm = useRef()
 
@@ -28,7 +28,7 @@ export default function LoginForm({ renderRegister }) {
       [formInputs[1].name]: formInputs[1].value,
     }
 
-    let url = 'http://localhost:8080/api/auth/signin'
+    let url = `${apiUrl}auth/signin`
     try {
       await axios.post(url, data)
         .then(res => {

@@ -3,8 +3,7 @@ import {useRef} from 'react'
 import axios from 'axios'
 import "./formmanga.css"
 import MangaSelect from '../Mangaselect/MangaSelect'
-
-
+import apiUrl from '../../url'
 
 export default function FormManga() {
 
@@ -23,7 +22,7 @@ export default function FormManga() {
        [description.current.name]: description.current.value 
      }
 
-   let url = "http://localhost:8080/api/mangas";
+   let url = `${apiUrl}mangas`;
      try {
        await axios.post(url, data);
        alert("Manga Successfully Created")

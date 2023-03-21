@@ -11,7 +11,7 @@ import { useRef } from 'react'
 import axios from 'axios'
 import { Link as Anchor } from 'react-router-dom'
 import Swal from 'sweetalert2'
-
+import apiUrl from '../../url'
 export default function RegisterForm({renderLogin}) {
     let dataForm = useRef()
 
@@ -33,7 +33,7 @@ export default function RegisterForm({renderLogin}) {
             [formInputs[3].name]: formInputs[3].value
         }
 
-        let url = 'http://localhost:8080/api/auth/signup'
+        let url = `${apiUrl}auth/signup`
        
             try{
                 await axios.post(url,data)

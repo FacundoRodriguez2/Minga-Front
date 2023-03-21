@@ -8,8 +8,11 @@ import MangaForm from "./Mangaform/MangaForm";
 import ChaptherForm from "./ChapterForm/ChapterForm";
 import FormAuthor from "./AuthorForm/AuthorForm";
 import FormCompany from "./CompanyForm/companyForm";
+import Chapters from "./Chapters/Chapters";
+import Manga from './Manga/Manga';
 import Author from "./Author/author";
 import AuthorProfile from "./AuthorProfile/Profile"
+import Mangas from './Mangas/Mangas'
 
 const router = createBrowserRouter([
     { 
@@ -27,14 +30,17 @@ const router = createBrowserRouter([
         path: '/' , 
         element: <MainLayout /> , 
         children: [
-
+            { path: '/author-form', element: <FormAuthor/> },
+            { path: '/company-form' , element: <FormCompany/> },
+            { path: '/author/:id', element: <Author/> },
             { path: '/register' , element: <AuthForm state='register'/> },
             { path: '/manga-form' , element: <MangaForm /> },
             { path: '/signin' , element: <AuthForm state='login'/> },
-            { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
-            { path: '/author-form', element: <FormAuthor/> },
-            { path: '/company-form' , element: <FormCompany/> },
-            { path: '/author/:id', element: <Author/> }   
+            { path: '/chapter-form/:manga_id' , element: <ChaptherForm /> },
+            { path: '/manga/:id/:page' , element: <Manga/> },
+            { path: '/mangas/:page' , element: <Mangas /> },
+            { path: '/chapters/:id/:page' , element: <Chapters/> },
+
         ]
     }
 

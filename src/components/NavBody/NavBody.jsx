@@ -4,6 +4,7 @@ import { useNavigate } from "react-router"
 import { Link as Anchor } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import apiUrl from '../../url'
 
 const User = {
     is_author: false,
@@ -19,7 +20,6 @@ export default function NavBody({handleRender}) {
     const navigate = useNavigate()
 
     let user = JSON.parse(localStorage.getItem('user')) ?? User
-
     
     async function handleLogout(){
         try{
@@ -40,6 +40,7 @@ export default function NavBody({handleRender}) {
             { token && user?.is_author ? <Anchor to='/profile'>Author Profile</Anchor> : ""}
             { token ? <Anchor to='/author-form'>New Author</Anchor> : "" }
             { token ? <Anchor to='/company-form'>New Company</Anchor> : "" }
+            { token ? <Anchor to='/mangas/1'>Mangas</Anchor> : "" }
             { token ? <Anchor to='/manga-form'>My Mangas</Anchor> : "" }
             { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: "" }
             { token ? "" : <Anchor to='/register' onClick={handleRender}>Register</Anchor> }
