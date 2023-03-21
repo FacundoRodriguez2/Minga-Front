@@ -1,6 +1,6 @@
 .chapters {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
 }
 .pages{
     height: 70%;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,6 +63,37 @@
     padding: .2rem;
     border-radius: 6px;
 }
+
+.chapters .div-chapter3 {
+    background: #dbd9d9;
+    height: 12vh;
+    width: 100%;
+    display: flex;
+}
+
+.div-chapter3 .chapter3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.chapter3 .parrafo-chapter3 {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: black;
+}
+
+.parrafo-chapter3 .comment {
+    width: 3rem;
+}
+
+.parrafo-chapter3 .quantity-comments{
+    font-size: 2rem;
+}
+
 @media (max-width: 1440px){
     .header{
         margin-top: 10%;

@@ -3,8 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import "./chapters.css"
-
-
+import Comment from "../../components/Comments/Comments";
+import { useDispatch, useSelector } from 'react-redux'
+import modalActions from '../../store/ModalComments/actions'
+import Chat from '../../images/chat.png'
+import commentsActions from '../../store/Comments/actions'
 
 
 export default function Chapters() {
@@ -16,6 +19,17 @@ export default function Chapters() {
     let [index, setIndex] = useState(parseInt(page))
     let navigate = useNavigate()
 
+    let dispatch = useDispatch()
+    let modalState = useSelector(store => store.commentsModal.state)
+    const { renderModal } = modalActions
+
+    let comments = useSelector(store => store.comments.comments)
+    console.log(comments)
+
+    let url2 = 'http://localhost:8080/api/comments?chapter_id=' + id
+    let token = localStorage.getItem('token')
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+    const { getComments } = commentsActions   
 
     useEffect(
         () => {
@@ -28,10 +42,9 @@ export default function Chapters() {
             })
                  .catch(e => console.log(e))
         }, 
-        [id, page]
+        [id, page,comments]
     )
-//   console.log(chapter)
-    //  console.log(next)
+
     let handlePrev = () => {
         setIndex(index - 1)
           navigate(`/chapters/${id}/${index - 1}`)
@@ -45,7 +58,6 @@ export default function Chapters() {
         }
     }
 
-
     let handleNext = () => {
         setIndex(index + 1)
         navigate(`/chapters/${id}/${index + 1}`)
@@ -53,10 +65,20 @@ export default function Chapters() {
             navigate(`/chapters/${next}/${0}`)
             window.location.reload(true)
      
+        }
     }
-}
 
-// console.log(next)
+    function handleRender() {
+        dispatch(renderModal({ state: true }))
+      }
+
+
+      
+      useEffect(() => { 
+        setTimeout(() => {       
+          axios.get(url2, headers).then(res => dispatch(getComments({ comments: res.data.comments })))     
+      }, 100)
+     }, [])
 
     return (
     <div className='chapters'>
@@ -72,6 +94,15 @@ export default function Chapters() {
             <img src="../../images/right-arrow.png" alt="next" />
         </div>
         </div>
+        <div className="div-chapter3">
+        <div className="chapter3">
+          <p className="parrafo-chapter3">
+            <img className="comment" src={Chat} alt="" onClick={handleRender} /> {/* ESTA ABRE EL MODAL*/}
+          </p>
+          <p className='quantity-comments'>{comments.length}</p>
+          {modalState ? <Comment /> : ""}
+        </div>
+      </div>
     </div>
   )
 }
