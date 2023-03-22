@@ -1,20 +1,34 @@
-.mangas .mangas-displayed .mangas-cards .card .card-text .text .createAndEdit-icons{
+.card_add-text .addImage{
+    margin-left: 1rem;
+    padding: .5rem;
+    height: 8rem;
+    width: 8rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-image: url("../../images/addIcon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.createAndEdit-icons{
     display: flex;
     gap: 15px;
     position: relative;
     top: 0;
     left: 0;
 }
-.mangas .mangas-displayed .mangas-cards .card .card-text .text .createAndEdit-icons img {
+.createAndEdit-icons img {
 width: 20px; 
 } 
 
-.mangas .mangas-displayed .mangas-cards .card .card-text .text .actions-btns{
+.actions-btns{
     display: flex;
     gap: 5px;
 }
 
-.mangas .mangas-displayed .mangas-cards .card .card-text .text .actions-btns .myMangas-card-anchor{
+.myMangas-card-anchor{
     text-decoration: none;
     background: rgba(209, 251, 240, 1);
     width: 92px;
@@ -30,27 +44,27 @@ width: 20px;
     line-height: 95.19%;
 }
 
-.mangas .mangas-displayed .mangas-cards .card .card-text .text .actions-btns .editBtn{
+.editBtn{
     background-color: #E0DBFF;
     color: #8883F0;
 }
 
-.mangas .mangas-displayed .mangas-cards .card .card-text .text .actions-btns .deleteBtn{
+.deleteBtn{
     background-color: #FBDDDC;
     color: #EE8380;
 }
 
-.mangas .mangas-displayed .mangas-cards .card .card-text .text .actions-btns .myMangas-card-anchor:hover{
+.myMangas-card-anchor:hover{
     transform: scale(1.1);
 }
 
 @media (max-width: 768px){
-    .mangas .mangas-displayed .mangas-cards .card{
+.card{
         width: 68.75vw;
         height: 144px;
     }
 
-    .mangas .mangas-displayed .mangas-cards .card .card-text .text{
+.card-text .text{
         margin-bottom: 15%;
         gap: 10px;
     }

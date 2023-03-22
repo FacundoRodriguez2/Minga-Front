@@ -2,14 +2,14 @@ import React from 'react'
 import "./mymangascards.css"
 import H2 from '../H2/H2'
 import Image from '../../components/Image/Image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import mangasActions from '../../store/MyMangas/actions'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { Link as Anchor } from 'react-router-dom'
 import addIcon from "../../images/addIcon.png"
 import editIcon from "../../images/editIcon.png"
+import CardAdd from "../../images/CardAdd.jpeg"
 import EditModal from '../EditModal/EditModal'
 import modalActions from '../../store/RenderEditModal/actions'
 import DeleteModal from '../DeleteModal/DeleteModal'
@@ -20,6 +20,7 @@ export default function MyMangasCards() {
     let mangas = useSelector(store => store.myMangas.myMangas)
     let editModalState = useSelector(store => store.modalState.state)
     let deleteModalState = useSelector(store => store.modalDeleteState.state)
+
     const { read_myMangas } = mangasActions
     const { renderModal } = modalActions
     const { renderDeleteModal } = deleteModalActions
@@ -30,18 +31,29 @@ export default function MyMangasCards() {
 
     useEffect(() => {
         dispatch(read_myMangas({ headers }))
-    }, [])
+    }, [ editModalState,  deleteModalState])
 
-    function handleEdit(event){
-        dispatch(renderModal({state: true, id: event.target.id}))
+      function handleEdit(event){
+             dispatch(renderModal({state: true, id: event.target.id}))
+        
     }
+    console.log(editModalState)
 
+    
     function handleDelete(event){
         dispatch(renderDeleteModal({state: true, id: event.target.id}))
     }
 
   return (
     <div className='mangas-cards'>
+         <section className='card'>
+                    <div className='card_add-text'>
+                        <Anchor to={'/manga-form'}><Image className= "addImage" src={addIcon} /></Anchor>
+                    </div>
+                    <div className='card-img'>
+                        <Image src={CardAdd} alt='manga-image' />
+                    </div>
+                </section>
     {
         mangas.length ? mangas.map((manga, i) => {
             let card =

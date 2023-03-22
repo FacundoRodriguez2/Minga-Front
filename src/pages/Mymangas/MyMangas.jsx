@@ -12,8 +12,8 @@ import { useSelector } from 'react-redux'
 export default function MyMangas() {
 
 
-  let mangas = useSelector(store => store)
-  // console.log(mangas)
+  let mangas = useSelector(store => store.myMangas.myMangas)
+   console.log(mangas)
   let name = ""
   if(mangas[0]?.author_id.name || mangas[0]?.author_id.last_name){
       name = mangas[0]?.author_id.name
@@ -21,6 +21,7 @@ export default function MyMangas() {
         name += " "+mangas[0]?.author_id?.last_name
       }
   }
+
 
   return (
       <div className='mangas'>

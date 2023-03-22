@@ -10,7 +10,7 @@ import modalActions from '../../store/RenderEditModal/actions'
 import closeIcon from '../../images/closeIcon.png'
 
 
-export default function EditModal() {
+export default function EditModal(props) {
   const [categories, setcategories] = useState([])
   const [categoria, setCategoria] = useState(null)
   const [mangaToEdit, setMangaToEdit] = useState("")
@@ -30,8 +30,7 @@ export default function EditModal() {
   let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
   async function handleSubmit(e) {
-    e.preventDefault();
-
+      e.preventDefault();
     if (isDisabled) {
       toast.error("Select a category");
       return;
@@ -52,6 +51,7 @@ export default function EditModal() {
       await axios.put(url, manga, headers)
       toast.success("Manga edited successfully")
       e.target.reset()
+      
       setTimeout(() => {
         handleClose()
       },1500)
@@ -71,7 +71,7 @@ export default function EditModal() {
   async function renderCategory() {
     await axios.get('http://localhost:8080/api/categories', headers).then(response =>  setcategories(response.data.categories) )
   }
-   console.log(categories)
+  //  console.log(categories)
 
   function handleClose() {
     dispatch(renderModal({ state: false }))
