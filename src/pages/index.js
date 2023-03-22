@@ -12,6 +12,8 @@ import Chapters from "./Chapters/Chapters";
 import Manga from './Manga/Manga';
 import Author from "./Author/author";
 import Mangas from './Mangas/Mangas'
+import MyMangas from "./Mymangas/MyMangas";
+
 
 const router = createBrowserRouter([
     { 
@@ -39,6 +41,8 @@ const router = createBrowserRouter([
             { path: '/manga/:id/:page' , element: <Manga/> },
             { path: '/mangas/:page' , element: <Mangas /> },
             { path: '/chapters/:id/:page' , element: <Chapters/> },
+            { path: '/mymangas/:page' , element: <MyMangas/> },
+
 
         ]
     }

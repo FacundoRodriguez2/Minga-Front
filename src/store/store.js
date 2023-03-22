@@ -5,6 +5,9 @@ import textReducer from "./SearchBar/reducer"
 import categoriesReducer from "./Categories/reducer"
 import alertReducer from "./Alerts/reducer"
 import sortReducer from './Sort/reducer'
+import myMangasReducer from "./MyMangas/reducer"
+import modalReducer from './RenderEditModal/reducer'
+import modalDeleteReducer from './RenderDeleteModal/reducer'
 import { configureStore } from "@reduxjs/toolkit"
 
 const store = configureStore({
@@ -15,7 +18,10 @@ const store = configureStore({
         text: textReducer,
         categories: categoriesReducer,
         alert: alertReducer,
-        order: sortReducer
+        order: sortReducer,
+        myMangas: myMangasReducer,
+        modalState: modalReducer,
+        modalDeleteState: modalDeleteReducer
     },
 })
 
