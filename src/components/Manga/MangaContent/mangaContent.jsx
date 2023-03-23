@@ -13,6 +13,7 @@ const {get_chapters}=chapterActions
 const MangaContent=() => {
   const [isToggled, setIsToggled] = useState(false) 
   const data = useSelector((store) => store.mangas)
+  console.log(data)
   const datachapter=useSelector((store)=> store.chapters.chapter)
   console.log(datachapter)
   const{description,cover_photo}=data
