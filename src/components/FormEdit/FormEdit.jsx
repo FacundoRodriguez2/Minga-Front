@@ -92,7 +92,7 @@ export default function FormEdit() {
                     <option value="order">order</option>
                     <option value="pages">pages</option>
                 </select>
-                <input type="text" placeholder='data to edit'ref={modValue} />
+                <input className='edit-button' type="text" placeholder='data to edit'ref={modValue} />
                 </fieldset>
                 <button className='btn-edit' >Edit</button>
             </form> 

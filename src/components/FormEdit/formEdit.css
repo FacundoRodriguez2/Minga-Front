@@ -7,6 +7,7 @@
 .title-ed {
   font-weight: 400;
   font-size: 36px;
+  margin-bottom: 2rem;
 }
 
 .edit-form {
@@ -21,9 +22,13 @@
   flex-direction: column;
   gap: 3rem;
   min-height: 30vh;
+  border: none;
 }
-.form-ed>input{
-  width: 280px;
+.edit-button{
+  background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid
 }
 
 .btn-edit {
