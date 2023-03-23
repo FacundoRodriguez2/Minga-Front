@@ -7,7 +7,7 @@ import axios from "axios";
 import image from "../../images/image.png"
 import apiUrl from "../../url";
 
-export default function companyForm() {
+export default function CompanyForm() {
     let dataForm = useRef()
     let {user_id} = useParams()
     console.log(user_id)

@@ -11,6 +11,7 @@ import FormCompany from "./CompanyForm/companyForm";
 import Chapters from "./Chapters/Chapters";
 import Manga from './Manga/Manga';
 import Author from "./Author/author";
+import AuthorProfile from "./AuthorProfile/Profile"
 import Mangas from './Mangas/Mangas'
 import EditChapter from './EditChapter/EditChapter'
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
             { path: '/', element: <Index /> },
             { path: '/hero' , element: <Hero />},
             { path: '/auth' , element: <AuthForm />},
-            
+            { path: '/profile', element: <AuthorProfile/> }
         ]
     }, 
     

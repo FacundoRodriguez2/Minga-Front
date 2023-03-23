@@ -6,6 +6,8 @@ import categoriesReducer from "./Categories/reducer"
 import alertReducer from "./Alerts/reducer"
 import sortReducer from './Sort/reducer'
 import { configureStore } from "@reduxjs/toolkit"
+import ModalComments from './ModalComments/reducer'
+import getComments from './Comments/reducer'
 
 const store = configureStore({
     reducer: {
@@ -16,6 +18,8 @@ const store = configureStore({
         categories: categoriesReducer,
         alert: alertReducer,
         order: sortReducer,
+        commentsModal: ModalComments,
+        comments: getComments
     },
 })
 

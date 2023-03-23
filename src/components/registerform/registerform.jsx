@@ -61,7 +61,7 @@ export default function RegisterForm({renderLogin}) {
                 <label htmlFor='email-notification'>Send notification to my email</label>
             </fieldset>
             <Input className='sign-up' type='submit' value="Sign up" />
-            <a href='#' className='sign-in-google'> <img src={googleLogo} alt="googleLogo" /><span>Sign in with Google</span></a>
+            <a href='home' className='sign-in-google'> <img src={googleLogo} alt="googleLogo" /><span>Sign in with Google</span></a>
 
             <p>Already have an account? <Anchor onClick={renderLogin} className='link'>Log in</Anchor></p>
             <p>Go back to <Anchor to='/' className='link'>home page</Anchor></p> 
