@@ -15,7 +15,7 @@ const store = configureStore({
         text: textReducer,
         categories: categoriesReducer,
         alert: alertReducer,
-        order: sortReducer
+        order: sortReducer,
     },
 })
 
