@@ -37,7 +37,7 @@ export default function MyMangasCards() {
              dispatch(renderModal({state: true, id: event.target.id}))
         
     }
-    console.log(editModalState)
+    // console.log(editModalState)
 
     
     function handleDelete(event){

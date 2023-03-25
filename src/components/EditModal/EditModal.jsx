@@ -20,7 +20,7 @@ export default function EditModal(props) {
   let category = useRef();
   let description = useRef();
   let coverPhoto = useRef();
-  //  console.log(editMangaId)
+    // console.log(editMangaId)
   const dispatch = useDispatch()
   const isDisabled = categoria == null;
   const { renderModal } = modalActions
@@ -44,6 +44,8 @@ export default function EditModal(props) {
       cover_photo: coverPhoto.current.value
     };
 
+    console.log(manga)
+
     const url = 'http://localhost:8080/api/mangas/'+editMangaId
 
 
@@ -51,7 +53,6 @@ export default function EditModal(props) {
       await axios.put(url, manga, headers)
       toast.success("Manga edited successfully")
       e.target.reset()
-      
       setTimeout(() => {
         handleClose()
       },1500)
@@ -80,7 +81,7 @@ export default function EditModal(props) {
   useEffect(() => {
     axios.get('http://localhost:8080/api/mangas/' + editMangaId, headers).then(response => setMangaToEdit(response.data.response))
   }, [editMangaId])
-  // console.log(mangaToEdit)
+  //  console.log(mangaToEdit)
   
   return (
     <div className='edit-modal'>
