@@ -5,6 +5,7 @@ import textReducer from "./SearchBar/reducer"
 import categoriesReducer from "./Categories/reducer"
 import alertReducer from "./Alerts/reducer"
 import sortReducer from './Sort/reducer'
+import verifyReducer from './user/reducer'
 import { configureStore } from "@reduxjs/toolkit"
 
 const store = configureStore({
@@ -15,7 +16,8 @@ const store = configureStore({
         text: textReducer,
         categories: categoriesReducer,
         alert: alertReducer,
-        order: sortReducer
+        order: sortReducer,
+        user: verifyReducer,
     },
 })
 

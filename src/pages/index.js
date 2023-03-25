@@ -13,6 +13,7 @@ import Manga from './Manga/Manga';
 import Author from "./Author/author";
 import AuthorProfile from "./AuthorProfile/Profile"
 import Mangas from './Mangas/Mangas'
+import Verify from "./AccountVerify/verify";
 
 const router = createBrowserRouter([
     { 
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
             { path: '/', element: <Index /> },
             { path: '/hero' , element: <Hero />},
             { path: '/auth' , element: <AuthForm />},
-            { path: '/profile', element: <AuthorProfile/> }
+            { path: '/profile', element: <AuthorProfile/> },
+            { path: '/verify-account/:verify_code' , element: <Verify state='login'/> }
         ]
     }, 
     
@@ -39,8 +41,7 @@ const router = createBrowserRouter([
             { path: '/chapter-form/:manga_id' , element: <ChaptherForm /> },
             { path: '/manga/:id/:page' , element: <Manga/> },
             { path: '/mangas/:page' , element: <Mangas /> },
-            { path: '/chapters/:id/:page' , element: <Chapters/> },
-
+            { path: '/chapters/:id/:page' , element: <Chapters/> }
         ]
     }
 
