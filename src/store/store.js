@@ -9,6 +9,8 @@ import myMangasReducer from "./MyMangas/reducer"
 import modalReducer from './RenderEditModal/reducer'
 import modalDeleteReducer from './RenderDeleteModal/reducer'
 import { configureStore } from "@reduxjs/toolkit"
+import ModalComments from './ModalComments/reducer'
+import getComments from './Comments/reducer'
 
 const store = configureStore({
     reducer: {
@@ -21,7 +23,9 @@ const store = configureStore({
         order: sortReducer,
         myMangas: myMangasReducer,
         modalState: modalReducer,
-        modalDeleteState: modalDeleteReducer
+        modalDeleteState: modalDeleteReducer,
+        commentsModal: ModalComments,
+        comments: getComments
     },
 })
 

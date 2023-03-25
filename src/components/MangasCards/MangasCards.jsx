@@ -29,15 +29,16 @@ export default function MangasCards() {
 
     return (
         <div className='mangas-cards'>
+            {console.log(mangas)}
             {
                 mangas.length ? mangas.map((manga, i) => {
                     let card = <Anchor className='card-anchor' to={'/mangas/'+manga._id+"/1"} key={i}>
                         <section className='card'>
                             <div className='card-text'>
-                                <div className='card-color'></div>
+                                <div className={'card-color-'+manga.category_id.name}></div>
                                 <div className='text'>
                                     <H2 text={manga.title} />
-                                    <span>{manga.category_id.name}</span>
+                                    <span className={'text-color-'+manga.category_id.name}>{manga.category_id.name}</span>
                                 </div>
                             </div>
                             <div className='card-img'>

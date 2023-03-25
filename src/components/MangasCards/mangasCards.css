@@ -36,10 +36,25 @@
     gap: 15px;
 }
 
-.mangas .mangas-displayed .mangas-cards .card-text .card-color{
+.mangas .mangas-displayed .mangas-cards .card-text .card-color-seinen{
     height: 71.34%;
     background: #FC9C57;
     border: 3px solid #FC9C57;
+}
+.mangas .mangas-displayed .mangas-cards .card-text .card-color-comic{
+    height: 71.34%;
+    background: #FC9C57;
+    border: 3px solid #8883F0;
+}
+.mangas .mangas-displayed .mangas-cards .card-text .card-color-shojo{
+    height: 71.34%;
+    background: #FC9C57;
+    border: 3px solid #00BA88;
+}
+.mangas .mangas-displayed .mangas-cards .card-text .card-color-shonen{
+    height: 71.34%;
+    background: #FC9C57;
+    border: 3px solid #EF8481;
 }
 
 .mangas .mangas-displayed .mangas-cards .card .card-text .text{
@@ -61,12 +76,33 @@
     width: 100%;
 }
 
-.mangas .mangas-displayed .mangas-cards .card .card-text .text span{
+.mangas .mangas-displayed .mangas-cards .card .card-text .text .text-color-seinen{
     font-weight: 500;
     font-size: 13px;
     line-height: 95.19%;
     width: 100%;
     color: #FC9C57;
+}
+.mangas .mangas-displayed .mangas-cards .card .card-text .text .text-color-shonen{
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 95.19%;
+    width: 100%;
+    color: #EF8481;
+}
+.mangas .mangas-displayed .mangas-cards .card .card-text .text .text-color-comic{
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 95.19%;
+    width: 100%;
+    color: #8883F0;
+}
+.mangas .mangas-displayed .mangas-cards .card .card-text .text .text-color-shojo{
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 95.19%;
+    width: 100%;
+    color: #00BA88;
 }
 
 .mangas .mangas-displayed .mangas-cards .card .card-img{
