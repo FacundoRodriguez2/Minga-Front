@@ -14,6 +14,7 @@ import Author from "./Author/author";
 import AuthorProfile from "./AuthorProfile/Profile"
 import Mangas from './Mangas/Mangas'
 import Verify from "./AccountVerify/verify";
+import EditChapter from './EditChapter/EditChapter'
 
 const router = createBrowserRouter([
     { 
@@ -41,7 +42,8 @@ const router = createBrowserRouter([
             { path: '/chapter-form/:manga_id' , element: <ChaptherForm /> },
             { path: '/manga/:id/:page' , element: <Manga/> },
             { path: '/mangas/:page' , element: <Mangas /> },
-            { path: '/chapters/:id/:page' , element: <Chapters/> }
+            { path: '/chapters/:id/:page' , element: <Chapters/> },
+            { path: '/edit/:manga_id' , element: <EditChapter /> },
         ]
     }
 
