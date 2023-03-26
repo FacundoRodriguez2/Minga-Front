@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             { path: '/hero' , element: <Hero />},
             { path: '/auth' , element: <AuthForm />},
             { path: '/profile', element: <AuthorProfile/> },
-            { path: '/verify-account/:verify_code' , element: <Verify state='login'/> }
+            { path: '/verify-account/:verify_code' , element: <Verify/> }
         ]
     }, 
     

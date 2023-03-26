@@ -13,7 +13,6 @@ const handleToken = () => {
     }
 }
 
-
 const verify_account = createAsyncThunk("verify_account", async ({ verify_code }) => {
     try {
         const response = await axios.get(`${apiUrl}/auth/verify/${verify_code}`, handleToken())

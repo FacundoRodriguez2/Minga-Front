@@ -39,10 +39,13 @@ export default function RegisterForm({renderLogin}) {
        
             try{
                 await axios.post(url,data)
-                
-                Swal.fire("Register Successful")
+                Swal.fire({
+                    title: 'Registration Successful',
+                    text: 'Please confirm your username using the link sent to your email.',
+                    icon: 'success'
+                })
                 dataForm.current.reset()
-                navigate("/verify-account", { replace: true });
+                navigate("/", { replace: true });
               }catch (error) {
                 if (typeof error.response.data.message === 'string') {
                     Swal.fire(error.response.data.message)
