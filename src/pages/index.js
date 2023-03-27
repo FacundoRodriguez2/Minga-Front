@@ -13,7 +13,11 @@ import Manga from './Manga/Manga';
 import Author from "./Author/author";
 import AuthorProfile from "./AuthorProfile/Profile"
 import Mangas from './Mangas/Mangas'
+<<<<<<< HEAD
 import MyMangas from "./Mymangas/MyMangas";
+=======
+import Verify from "./AccountVerify/verify";
+>>>>>>> 865d2bef78a2ca64846005411ea4bb6d1626e4d3
 import EditChapter from './EditChapter/EditChapter'
 
 const router = createBrowserRouter([
@@ -24,7 +28,8 @@ const router = createBrowserRouter([
             { path: '/', element: <Index /> },
             { path: '/hero' , element: <Hero />},
             { path: '/auth' , element: <AuthForm />},
-            { path: '/profile', element: <AuthorProfile/> }
+            { path: '/profile', element: <AuthorProfile/> },
+            { path: '/verify-account/:verify_code' , element: <Verify/> }
         ]
     }, 
     

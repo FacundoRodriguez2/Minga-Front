@@ -10,10 +10,12 @@ import Camera from '../../images/camera.svg'
 import { useRef } from 'react'
 import axios from 'axios'
 import { Link as Anchor } from 'react-router-dom'
+import { useNavigate } from "react-router"
 import Swal from 'sweetalert2'
 import apiUrl from '../../url'
 export default function RegisterForm({renderLogin}) {
     let dataForm = useRef()
+    const navigate = useNavigate()
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -37,9 +39,13 @@ export default function RegisterForm({renderLogin}) {
        
             try{
                 await axios.post(url,data)
-                
-                Swal.fire("Register Successful")
+                Swal.fire({
+                    title: 'Registration Successful',
+                    text: 'Please confirm your username using the link sent to your email.',
+                    icon: 'success'
+                })
                 dataForm.current.reset()
+                navigate("/", { replace: true });
               }catch (error) {
                 if (typeof error.response.data.message === 'string') {
                     Swal.fire(error.response.data.message)
