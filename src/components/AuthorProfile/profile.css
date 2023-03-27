@@ -235,7 +235,6 @@ h1{
         flex-direction: column;
         width: 17rem;
         gap: 1rem;
-        /* border: 2px solid black; */
     }
     .signup-form-container{
         width: 100%;
@@ -278,7 +277,6 @@ h1{
         text-decoration: none;
     }
     .form{
-        /* border: 2px solid red; */
         width: 80%;
         margin: 0px;
         padding: 0px;
