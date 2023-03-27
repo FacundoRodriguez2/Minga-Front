@@ -3,9 +3,9 @@ import { createReducer } from "@reduxjs/toolkit"
 
 
 const{
-
-  get_chapters
-
+  get_chapters,
+  editChapter,
+  deleteChapter
 }=chapterActions
 
 
@@ -17,6 +17,7 @@ const initialState = {
 const chapterReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(get_chapters.fulfilled,(state,action)=>{
+      console.log(action.payload.chapter)
       let newState = {
         ...state,
         chapter: action.payload.chapter,
@@ -24,6 +25,27 @@ const chapterReducer = createReducer(initialState, (builder) => {
     }
     return newState
     })
+    .addCase(
+      editChapter.fulfilled,
+      (state, action)=>{
+          console.log(action.payload)
+          let newState={
+              ...state,
+              chapters: action.payload.chapters
+          }
+          return newState
+      }
+  )
+  .addCase(
+      deleteChapter.fulfilled,
+      (state, action)=>{
+          let newState = {
+              ...state,
+              chapters: action.payload.chapters
+          }
+          return newState
+      }
+  )
     // .addCase(get_chapters.rejected, (state, action) => {
     //   let newState =  {
     //       message: "error"

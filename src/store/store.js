@@ -7,6 +7,8 @@ import alertReducer from "./Alerts/reducer"
 import sortReducer from './Sort/reducer'
 import verifyReducer from './user/reducer'
 import { configureStore } from "@reduxjs/toolkit"
+import ModalComments from './ModalComments/reducer'
+import getComments from './Comments/reducer'
 
 const store = configureStore({
     reducer: {
@@ -18,6 +20,8 @@ const store = configureStore({
         alert: alertReducer,
         order: sortReducer,
         user: verifyReducer,
+        commentsModal: ModalComments,
+        comments: getComments
     },
 })
 
