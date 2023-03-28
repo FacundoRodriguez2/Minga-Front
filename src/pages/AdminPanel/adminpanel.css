@@ -68,3 +68,9 @@
       margin-top: 4rem;
   }
 }
+
+@media (min-width:320px) and (max-width:630px) {
+  .sectionAdminPanel .title-adminPanel{
+    margin-top: 10rem;
+  }
+}
