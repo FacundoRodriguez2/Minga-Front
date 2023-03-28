@@ -8,6 +8,7 @@ import sortReducer from './Sort/reducer'
 import { configureStore } from "@reduxjs/toolkit"
 import ModalComments from './ModalComments/reducer'
 import getComments from './Comments/reducer'
+import panelAdminReducer from './PanelAdmin/reducer'
 
 const store = configureStore({
     reducer: {
@@ -19,7 +20,8 @@ const store = configureStore({
         alert: alertReducer,
         order: sortReducer,
         commentsModal: ModalComments,
-        comments: getComments
+        comments: getComments,
+        panelAdmin : panelAdminReducer,
     },
 })
 

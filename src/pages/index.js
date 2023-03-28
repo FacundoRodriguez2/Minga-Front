@@ -14,6 +14,8 @@ import Author from "./Author/author";
 import AuthorProfile from "./AuthorProfile/Profile"
 import Mangas from './Mangas/Mangas'
 import EditChapter from './EditChapter/EditChapter'
+import RoleChange from './RoleChange/RoleChange'
+import AdminPanel from "./AdminPanel/AdminPanel";
 
 const router = createBrowserRouter([
     { 
@@ -42,6 +44,8 @@ const router = createBrowserRouter([
             { path: '/mangas/:page' , element: <Mangas /> },
             { path: '/chapters/:id/:page' , element: <Chapters/> },
             { path: '/edit/:manga_id' , element: <EditChapter /> },
+            {path: "/new-role",element: <RoleChange/>},
+            {path: "/admin",element: <AdminPanel />},
         ]
     }
 
