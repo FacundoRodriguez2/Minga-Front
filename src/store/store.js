@@ -5,10 +5,14 @@ import textReducer from "./SearchBar/reducer"
 import categoriesReducer from "./Categories/reducer"
 import alertReducer from "./Alerts/reducer"
 import sortReducer from './Sort/reducer'
+import myMangasReducer from "./MyMangas/reducer"
+import modalReducer from './RenderEditModal/reducer'
+import modalDeleteReducer from './RenderDeleteModal/reducer'
 import verifyReducer from './user/reducer'
 import { configureStore } from "@reduxjs/toolkit"
 import ModalComments from './ModalComments/reducer'
 import getComments from './Comments/reducer'
+import panelAdminReducer from './PanelAdmin/reducer'
 
 const store = configureStore({
     reducer: {
@@ -19,9 +23,13 @@ const store = configureStore({
         categories: categoriesReducer,
         alert: alertReducer,
         order: sortReducer,
+        myMangas: myMangasReducer,
+        modalState: modalReducer,
+        modalDeleteState: modalDeleteReducer,
         user: verifyReducer,
         commentsModal: ModalComments,
-        comments: getComments
+        comments: getComments,
+        panelAdmin : panelAdminReducer,
     },
 })
 
