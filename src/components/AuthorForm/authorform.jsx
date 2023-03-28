@@ -7,10 +7,11 @@ import axios from "axios";
 import image from "../../images/image.png"
 import apiUrl from "../../url"
 import Swal from 'sweetalert2'
+
 export default function AuthorForm() {
     let dataForm = useRef()
     let {user_id} = useParams()
-    console.log(user_id)
+
     async function handleSubmit(e){
         e.preventDefault()
 
@@ -31,10 +32,8 @@ export default function AuthorForm() {
         user_id
         }
 
-        console.log(data)
         let url = `${apiUrl}authors`
         let token = localStorage.getItem('token')
-        console.log(token)
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
         try{
             await axios.post(url,data,headers)
@@ -46,15 +45,15 @@ export default function AuthorForm() {
               });
             dataForm.current.reset()
           }catch(error){
-            console.log(error)
+            Swal.fire(error)
             
             if (error.response.data === 'Unauthorized') {
-                alert('You need to Login')
+                Swal.fire('You need to Login')
             }
             if(typeof error.response.data.message === 'string'){
-                alert(error.response.data.message)
+                Swal.fire(error.response.data.message)
                }else{
-                error.response.data.message.forEach(err => alert(err))
+                error.response.data.message.forEach(err => Swal.fire(err))
                }
           }
     }

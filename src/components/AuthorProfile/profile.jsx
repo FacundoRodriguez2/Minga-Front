@@ -92,7 +92,8 @@ function AuthorProfile() {
 
         return(
             <>
-            <div className='containerGeneral'>
+            {
+                author?.active ? <div className='containerGeneral'>
                 <div className='containerSuperior'>
                     <h1>Profile</h1>
                 </div>
@@ -103,7 +104,7 @@ function AuthorProfile() {
                         <div className='profilePhoto'>
                         <img className='photoProfile' src={author.photo} alt="foto" />
                         </div>
-                            <form className='form'>
+                            <form className='form-profile'>
                             <div className="form-row">
                                 <div className="form-signup-row">
                                 <input
@@ -204,7 +205,9 @@ function AuthorProfile() {
 
                 </div>
 
-            </div>
+            </div> 
+            : <p>Aca pone algo</p>
+            }
         </>
     )
 }

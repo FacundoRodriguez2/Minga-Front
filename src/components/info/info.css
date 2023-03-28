@@ -92,21 +92,21 @@
     line-height: 95.19%;
 }
 #info-container #backnaruto #explore{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 16px;
-gap: 10px;
-width: 240px;
-height: 55px;
-background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
-border-radius: 6px;
-font-weight: 500;
-font-size: 24px;
-line-height: 95.19%;
-color: #FFFFFF;
-text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 10px;
+    width: 240px;
+    height: 55px;
+    background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 95.19%;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -130,11 +130,40 @@ text-decoration: none;
         display: none;
     }
     #info-container #backnaruto #narutocontent h2{
-    width: 300px;
-    height: 76px;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 95.19%;   
+        width: 300px;
+        height: 76px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 95.19%;   
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+    #info-container #info #mangainfo h2{
+        display: none;
+    }
+    
+    #info-container #info #mangainfo p{
+        display: none;
+    }
+    
+    #info-container #info #mangainfo #mangatitle{
+        display: none;
     }
 
+    #backnaruto #narutocontent h2{
+        padding: 1rem;
+    }
+
+    #backnaruto #narutocontent h3{
+        padding: 1rem;
+    }
+
+    #backnaruto #narutocontent span{
+        padding: 1rem;
+    }
+
+    #backnaruto #narutocontent #explore{
+        margin: 2rem;
+    }
 }

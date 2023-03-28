@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import modalActions from '../../store/ModalComments/actions'
 import Chat from '../../images/chat.png'
 import commentsActions from '../../store/Comments/actions'
+import { Link as Anchor } from "react-router-dom"
 
 
 export default function Chapters() {
@@ -81,7 +82,9 @@ export default function Chapters() {
      }, [])
 
     return (
-    <div className='chapters'>
+      <>
+      {
+        token ? <div className='chapters'>
         <div className='header'>
             <h5>n°{chapter?.order } - { chapter?.title} </h5>
         </div>
@@ -103,6 +106,8 @@ export default function Chapters() {
           {modalState ? <Comment /> : ""}
         </div>
       </div>
-    </div>
+    </div> : <div className='noLogged'><Anchor to='/auth'>Please Register or Login</Anchor></div>
+      }
+      </>
   )
 }

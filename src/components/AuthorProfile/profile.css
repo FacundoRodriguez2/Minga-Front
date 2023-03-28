@@ -125,21 +125,22 @@ h1{
     display: flex;
     flex-direction: column;
     width: 19rem;
+    height: 100%;
 }
 
-.form{
+.form-profile{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0px;
     padding: 0px;
-    height: 100%;
+    height: 85%;
     width: 19rem;
 }
 
 .form-signup-row{
     display: flex;
-    height: 2rem;
+    height: 2.5rem;
     align-items: end;
     flex-direction: row;
     border-bottom: 1px solid grey;
@@ -216,6 +217,7 @@ h1{
         width: 100%;
         height: 85vh;
         justify-content: center;
+        margin-top: 6rem;
     }
     .sectionLeft{
         height: 100%;
@@ -243,7 +245,6 @@ h1{
     }
     .form-signup-row{
         display: flex;
-        height: 1.5rem;
         align-items: end;
         flex-direction: row;
         border-bottom: 1px solid grey;
@@ -276,7 +277,7 @@ h1{
         color: #EE8380;
         text-decoration: none;
     }
-    .form{
+    .form-profile{
         width: 80%;
         margin: 0px;
         padding: 0px;
