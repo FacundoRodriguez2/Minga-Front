@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import image from "../../images/image.png"
 import apiUrl from "../../url"
-
+import Swal from 'sweetalert2'
 export default function AuthorForm() {
     let dataForm = useRef()
     let {user_id} = useParams()
@@ -38,7 +38,12 @@ export default function AuthorForm() {
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
         try{
             await axios.post(url,data,headers)
-            alert('Author created successfully')
+            Swal.fire({
+                icon: 'success',
+                title: 'Author created successfully',
+                showConfirmButton: true,
+                confirmButtonText: "Acept"
+              });
             dataForm.current.reset()
           }catch(error){
             console.log(error)

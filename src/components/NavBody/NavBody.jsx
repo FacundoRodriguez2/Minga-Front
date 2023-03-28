@@ -46,6 +46,7 @@ export default function NavBody({handleRender}) {
             { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: "" }
             { token ? "" : <Anchor to='/register' onClick={handleRender}>Register</Anchor> }
             { token ? "" : <Anchor to='/signin' onClick={handleRender}>Login</Anchor> }
+            {token ? <Anchor to='/new-role'>New Role</Anchor> : ''}
         </div>
     )
 }

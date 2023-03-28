@@ -12,6 +12,7 @@ import verifyReducer from './user/reducer'
 import { configureStore } from "@reduxjs/toolkit"
 import ModalComments from './ModalComments/reducer'
 import getComments from './Comments/reducer'
+import panelAdminReducer from './PanelAdmin/reducer'
 
 const store = configureStore({
     reducer: {
@@ -27,7 +28,8 @@ const store = configureStore({
         modalDeleteState: modalDeleteReducer,
         user: verifyReducer,
         commentsModal: ModalComments,
-        comments: getComments
+        comments: getComments,
+        panelAdmin : panelAdminReducer,
     },
 })
 
