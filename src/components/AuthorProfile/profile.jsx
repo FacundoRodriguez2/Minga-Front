@@ -7,6 +7,7 @@ import iconGps from "../../images/iconGps.png"
 import iconDate from "../../images/iconDate.png"
 import Swal from 'sweetalert2'
 
+
 const { get_me, edit_author, delete_author } = authorActions
 
 function AuthorProfile() {
@@ -95,7 +96,7 @@ function AuthorProfile() {
             {
                 author?.active ? <div className='containerGeneral'>
                 <div className='containerSuperior'>
-                    <h1>Profile</h1>
+                    <h1 className='profile-h1'>Profile</h1>
                 </div>
                 <div className='containerInferior'>
 
