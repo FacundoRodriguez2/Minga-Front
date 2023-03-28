@@ -13,15 +13,12 @@ import Manga from './Manga/Manga';
 import Author from "./Author/author";
 import AuthorProfile from "./AuthorProfile/Profile"
 import Mangas from './Mangas/Mangas'
-<<<<<<< HEAD
 import EditChapter from './EditChapter/EditChapter'
 import RoleChange from './RoleChange/RoleChange'
 import AdminPanel from "./AdminPanel/AdminPanel";
-=======
 import MyMangas from "./Mymangas/MyMangas";
 import Verify from "./AccountVerify/verify";
-import EditChapter from './EditChapter/EditChapter'
->>>>>>> 71e735efaff7bf37d0ca7a0f5823bfc04dad1022
+
 
 const router = createBrowserRouter([
     { 
@@ -50,14 +47,11 @@ const router = createBrowserRouter([
             { path: '/manga/:id/:page' , element: <Manga/> },
             { path: '/mangas/:page' , element: <Mangas /> },
             { path: '/chapters/:id/:page' , element: <Chapters/> },
-<<<<<<< HEAD
             { path: '/edit/:manga_id' , element: <EditChapter /> },
             {path: "/new-role",element: <RoleChange/>},
             {path: "/admin",element: <AdminPanel />},
-=======
             { path: '/mymangas/:page' , element: <MyMangas/> },
             { path: '/edit/:manga_id' , element: <EditChapter /> },
->>>>>>> 71e735efaff7bf37d0ca7a0f5823bfc04dad1022
         ]
     }
 
