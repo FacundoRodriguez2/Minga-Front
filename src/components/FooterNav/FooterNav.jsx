@@ -1,5 +1,6 @@
 import React from 'react'
 import './footerNav.css'
+import DonateBtn from '../Donatebtn.js/DonateBtn'
 import logo from '../../images/Logo.png'
 import facebook from '../../images/Facebook.svg'
 import twitter from '../../images/Twitter.svg'
@@ -24,7 +25,7 @@ export default function FooterNav() {
                     <a href="#"><img src={vimeo} alt="" /></a>
                     <a href="#"> <img src={youtube} alt="" /></a>
                 </div>
-                <a href='#' className='donate'>Donate</a>
+                <DonateBtn />
             </div>
         </nav>
     )

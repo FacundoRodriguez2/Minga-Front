@@ -10,10 +10,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 9.87vh;
+    gap: 3vh;
 }
 .new_manga h1 {
-    font-weight: 50;
+    font-size: 40px;
+    font-weight: 0;
+    color: black;
+    margin-top: 8%;
+
 }
 .form-manga{
     display: flex;
