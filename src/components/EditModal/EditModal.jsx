@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useRef } from 'react';
 import './editmodal.css';
-import toast, { Toaster } from "react-hot-toast";
+import Swal from 'sweetalert2'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -32,7 +32,7 @@ export default function EditModal(props) {
   async function handleSubmit(e) {
       e.preventDefault();
     if (isDisabled) {
-      toast.error("Select a category");
+      Swal.fire("Select a category");
       return;
     }
 
@@ -51,7 +51,7 @@ export default function EditModal(props) {
 
     try {
       await axios.put(url, manga, headers)
-      toast.success("Manga edited successfully")
+      Swal.fire("Manga edited successfully")
       e.target.reset()
       setTimeout(() => {
         handleClose()
@@ -59,12 +59,12 @@ export default function EditModal(props) {
     } catch (error) {
       if(error.response){
         if (typeof error.response.data.message === 'string') {
-          toast.error(error.response.data.message)
+          Swal.fire(error.response.data.message)
         } else {
-          error.response.data.message.forEach(err => toast.error(err))
+          error.response.data.message.forEach(err => Swal.fire(err))
         }
       }else{
-        toast.error(error.message)
+        Swal.fire(error.message)
       }
     }
   }
@@ -72,7 +72,7 @@ export default function EditModal(props) {
   async function renderCategory() {
     await axios.get('http://localhost:8080/api/categories', headers).then(response =>  setcategories(response.data.categories) )
   }
-  //  console.log(categories)
+
 
   function handleClose() {
     dispatch(renderModal({ state: false }))
@@ -81,7 +81,7 @@ export default function EditModal(props) {
   useEffect(() => {
     axios.get('http://localhost:8080/api/mangas/' + editMangaId, headers).then(response => setMangaToEdit(response.data.response))
   }, [editMangaId])
-  //  console.log(mangaToEdit)
+
   
   return (
     <div className='edit-modal'>
@@ -126,7 +126,6 @@ export default function EditModal(props) {
           ref={coverPhoto}
         />
         <input className='send-Btn' type='submit' value='Send' />
-        <Toaster />
       </form> 
     </div>
   )

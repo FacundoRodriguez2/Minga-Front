@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import image from "../../images/image.png"
 import apiUrl from "../../url";
-
+import Swal from 'sweetalert2'
 export default function CompanyForm() {
     let dataForm = useRef()
     let {user_id} = useParams()
@@ -36,16 +36,31 @@ export default function CompanyForm() {
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
         try{
             await axios.post(url,data,headers)
-            alert('Company created successfully')
+            Swal.fire({
+              icon: 'success',
+              title: 'Profile updated successfully',
+              showConfirmButton: true,
+              confirmButtonText: "Acept"
+            });
             dataForm.current.reset()
           }catch(error){
             console.log(error)
             
             if (error.response.data === 'Unauthorized') {
-                alert('You need to Login')
+                Swal.fire({
+                    icon:'warning',
+                    title:'You need to Login',
+                    showConfirmButton: true,
+                    confirmButtonText: "Acept"
+                })
             }
             if(typeof error.response.data.message === 'string'){
-                alert(error.response.data.message)
+                Swal.fire({
+                    icon:'warning',
+                    title: " "+error.response.data.message,
+                    showConfirmButton: true,
+                    confirmButtonText: "Acept"
+                })
                }else{
                 error.response.data.message.forEach(err => alert(err))
                }

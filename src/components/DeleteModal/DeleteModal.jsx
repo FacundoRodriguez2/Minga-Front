@@ -2,7 +2,7 @@ import React from 'react'
 import './deletemodal.css'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import toast, { Toaster } from "react-hot-toast";
+import Swal from 'sweetalert2'
 import deleteModalActions from '../../store/RenderDeleteModal/actions'
 import axios from 'axios';
 
@@ -24,19 +24,19 @@ export default function DeleteModal() {
     async function handleDelete() {
         try {
             await axios.delete(url, headers)
-            toast.success("Manga deleted successfully")
+            Swal.fire("Manga deleted successfully")
             setTimeout(() => {
                 handleClose()
             }, 1500)
         } catch (error) {
             if (error.response) {
                 if (typeof error.response.data.message === 'string') {
-                    toast.error(error.response.data.message)
+                    Swal.fire(error.response.data.message)
                 } else {
-                    error.response.data.message.forEach(err => toast.error(err))
+                    error.response.data.message.forEach(err => Swal.fire(err))
                 }
             } else {
-                toast.error(error.message)
+                Swal.fire(error.message)
             }
         }
     }
@@ -48,7 +48,7 @@ export default function DeleteModal() {
                 <p onClick={handleDelete}>Delete</p>
                 <p onClick={handleClose}>Cancel</p>
             </div>
-            <Toaster />
+            
         </div>
     )
 }

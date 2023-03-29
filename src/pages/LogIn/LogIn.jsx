@@ -8,7 +8,7 @@ export default function LogIn({renderRegister}) {
   return (
     <section className='log-in'>
       <div className='img-section'>
-        <img src={LogInimg} alt="image-login" />
+        <img src={LogInimg} alt="imagelogin" />
       </div>
 
       <div className='form-section'>
