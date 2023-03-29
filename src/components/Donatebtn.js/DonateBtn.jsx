@@ -3,7 +3,7 @@ import './donatebtn.css'
 import { Link as Anchor } from 'react-router-dom'
 import { useState } from 'react';
 import DonateModal from '../Donatemodal/DonateModal';
-import apiUrl from "../../url.js"
+
 
 
 
