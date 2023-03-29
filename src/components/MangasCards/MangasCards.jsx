@@ -22,7 +22,7 @@ export default function MangasCards() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-        if (!mangas.lenght) {
+        if (!mangas?.length) {
             dispatch(read_mangas({ page: page, inputText: text, categories: categories, order: order, headers }))
         }
     }, [page, text, categories, order])
@@ -31,7 +31,7 @@ export default function MangasCards() {
         <div className='mangas-cards'>
             {console.log(mangas)}
             {
-                mangas.length ? mangas.map((manga, i) => {
+                mangas?.length ? mangas.map((manga, i) => {
                     let card = <Anchor className='card-anchor' to={'/mangas/'+manga._id+"/1"} key={i}>
                         <section className='card'>
                             <div className='card-text'>

@@ -14,12 +14,15 @@ import EditModal from '../EditModal/EditModal'
 import modalActions from '../../store/RenderEditModal/actions'
 import DeleteModal from '../DeleteModal/DeleteModal'
 import deleteModalActions from '../../store/RenderDeleteModal/actions'
+import { useParams } from 'react-router-dom'
 
 
 export default function MyMangasCards() {
     let mangas = useSelector(store => store.myMangas.myMangas)
     let editModalState = useSelector(store => store.modalState.state)
     let deleteModalState = useSelector(store => store.modalDeleteState.state)
+    let categories = useSelector(store => store.categories.categories)
+    let page = useParams().page
 
     const { read_myMangas } = mangasActions
     const { renderModal } = modalActions
@@ -30,8 +33,8 @@ export default function MyMangasCards() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-        dispatch(read_myMangas({ headers }))
-    }, [ editModalState,  deleteModalState])
+        dispatch(read_myMangas({ headers, page:page, categories:categories }))
+    }, [ editModalState,  deleteModalState, categories, page])
 
       function handleEdit(event){
              dispatch(renderModal({state: true, id: event.target.id}))

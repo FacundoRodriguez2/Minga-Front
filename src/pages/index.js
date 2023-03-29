@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             { path: '/', element: <Index /> },
             { path: '/hero' , element: <Hero />},
             { path: '/auth' , element: <AuthForm />},
-            { path: '/profile', element: <AuthorProfile/> },
+            { path: '/profile', element: <AuthorProfile/> }, //falta
             { path: '/verify-account/:verify_code' , element: <Verify/> }
         ]
     }, 
@@ -43,14 +43,14 @@ const router = createBrowserRouter([
             { path: '/register' , element: <AuthForm state='register'/> },
             { path: '/manga-form' , element: <MangaForm /> },
             { path: '/signin' , element: <AuthForm state='login'/> },
-            { path: '/chapter-form/:manga_id' , element: <ChaptherForm /> },
-            { path: '/manga/:id/:page' , element: <Manga/> },
+            { path: '/chapter-form/:manga_id' , element: <ChaptherForm /> }, 
+            { path: '/mangas/:id/:page' , element: <Manga/> },
             { path: '/mangas/:page' , element: <Mangas /> },
             { path: '/chapters/:id/:page' , element: <Chapters/> },
-            { path: '/edit/:manga_id' , element: <EditChapter /> },
-            {path: "/new-role",element: <RoleChange/>},
-            {path: "/admin",element: <AdminPanel />},
-            { path: '/mymangas/:page' , element: <MyMangas/> },
+            { path: '/edit/:manga_id' , element: <EditChapter /> }, 
+            { path: "/new-role",element: <RoleChange/> },
+            { path: "/admin",element: <AdminPanel />  },
+            { path: '/mymangas/:page' , element: <MyMangas/> }, 
             { path: '/edit/:manga_id' , element: <EditChapter /> },
         ]
     }

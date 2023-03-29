@@ -16,13 +16,13 @@ export default function MangasType() {
     const [categories, setCategories] = useState(false)
     const { captureCheck } = categoriesActions
     const dispatch = useDispatch()
-
+    let token = localStorage.getItem('token')
+    let headers = {headers:{'Authorization':`Bearer ${token}`}}
     let checkedCategories = useSelector(store => store.categories.categories)
 
     let categoriesUrl = `${apiUrl}categories`
-
     useEffect(() => {
-        axios.get(categoriesUrl).then(e => setCategories(e.data.categories))
+        axios.get(categoriesUrl, headers).then(e => setCategories(e.data.categories))
     },[])
     
     function prueba(e){
