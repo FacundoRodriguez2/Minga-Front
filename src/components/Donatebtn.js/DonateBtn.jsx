@@ -5,8 +5,6 @@ import { useState } from 'react';
 import DonateModal from '../Donatemodal/DonateModal';
 
 
-
-
 export default function DonateBtn() {
     const [render, setRender] = useState(false);
 

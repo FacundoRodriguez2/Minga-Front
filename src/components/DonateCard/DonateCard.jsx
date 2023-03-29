@@ -5,16 +5,12 @@ import Swal from 'sweetalert2'
 import apiUrl from "../../url.js"
 
 
-
-
 export default function DonateCard({donate}) {
     let url = `${apiUrl}payments`
-
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     const handleClick =  async () => {
-
         try {
             await axios.post(url, donate, headers)
                        .then(res => (window.location.href = res.data.response.body.init_point))
@@ -40,7 +36,6 @@ export default function DonateCard({donate}) {
         }
              
     }
-
 
     
 return (
