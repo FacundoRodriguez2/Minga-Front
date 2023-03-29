@@ -77,9 +77,11 @@ export default function LoginForm({ renderRegister }) {
     }
 
     let url = `${apiUrl}auth/signin`
+    let admin
     try {
       await axios.post(url, data)
         .then(res => {
+          res.data.user.is_admin ? (admin = true) : (admin = false)
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('user', JSON.stringify({
             id: res.data.user._id,
@@ -87,6 +89,7 @@ export default function LoginForm({ renderRegister }) {
             last_name: res.data.user.last_name,
             mail: res.data.user.mail,
             photo: res.data.user.photo,
+            admin,
             is_author: res.data.user.is_author
           }))
           setInterval(() => window.location.href = '/', 1000)

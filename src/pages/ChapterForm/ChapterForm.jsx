@@ -1,15 +1,20 @@
 import React from "react";
 import './chapterForm.css'
 import Input from "../../components/input/input";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import apiUrl from "../../url"
+import { Link as Anchor } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux"
 
 export default function ChaptherForm() {
     let dataForm = useRef()
     let {manga_id} = useParams()
-    console.log(manga_id)
+    const authorStore = useSelector((store) => store.author)
+    const author = authorStore.author
+    const dispatch = useDispatch()   
+
     async function handleSubmit(e){
         e.preventDefault()
 
@@ -49,7 +54,9 @@ export default function ChaptherForm() {
 
 
     return(
-        <div id="chapterbox">
+        <>
+        {
+            author?.active ? <div id="chapterbox">
             <div id="chaptercontent">
                 <section id="newchapter" >
                     <h2>New Chapter</h2>
@@ -61,7 +68,13 @@ export default function ChaptherForm() {
                     <Input id='send' type='submit' value='Send'/>
                 </form>
             </div>
-        </div>
+        </div> : <div className='noLogged'>
+                    <Anchor to='/auth'>Please Register/Login</Anchor>
+                    <p>Or</p>
+                    <Anchor to='/author-form'>Become an Author</Anchor>
+                </div>
+        }
+        </>
     )
 
 }

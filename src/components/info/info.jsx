@@ -9,7 +9,7 @@ export default function info(){
             <div id="info" >
                 <img id="heroimg" src={Hero} alt="hero" />
                 <img id="manga" src={Manga} alt="" />
-                <div id="mangainfo" >
+                <div id="mangainfo">
                     <h2>Trigun Stampe</h2>
                     <span id="mangatitle">Manga</span>
                     <p>TRIGUN is a popular action manga by Yasuhiro Nightow that follows the story of Vash Stampede, a legendary gunfighter and pacifist with a huge bounty on his head.</p>

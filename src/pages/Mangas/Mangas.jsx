@@ -6,10 +6,14 @@ import MangasCategories from '../../components/MangasCategories/MangasCategories
 import MangasType from '../../components/MangasType/MangasType'
 import MangasCards from '../../components/MangasCards/MangasCards'
 import MangasBtn from '../../components/MangasBtn/MangasBtn'
+import { Link as Anchor } from 'react-router-dom'
 
 export default function Comics() {
+  let token = localStorage.getItem('token')
   return (
-    <div className='mangas'>
+    <>
+    {
+      token ? <div className='mangas'>
 
       <MangasTitle />
 
@@ -21,6 +25,8 @@ export default function Comics() {
         <MangasBtn />
       </section>
 
-    </div>
+    </div> : <div className='noLogged'><Anchor to='/auth'>Please Register or Login</Anchor></div>
+    }
+    </>
   )
 }

@@ -14,9 +14,6 @@ export default function FormManga() {
 
  async function handleSubmit(event){
    event.preventDefault()
-    // console.log(title.current.value)
-    console.log(Object.values(category.current))
-    // console.log(description.current.value)
      let data = {
        [title.current.name]: title.current.value,
        [category.current.name]: category.current.value,

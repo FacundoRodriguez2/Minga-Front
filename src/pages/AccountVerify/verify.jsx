@@ -10,7 +10,6 @@ export default function Verify() {
   console.log(Store)
     const dispatch = useDispatch()
     const params = useParams()
-    console.log(params)
 
 
   useEffect(() => {

@@ -19,8 +19,9 @@
 
 #navopen .navBody a:hover{
     background: #FFFFFF;
+    width: 250px;
+    height: 2rem;
     border-radius: 8px;
-    width: 100%;
     color: rgb(245, 124, 188);
     font-weight: 600;
     font-size: 15px;

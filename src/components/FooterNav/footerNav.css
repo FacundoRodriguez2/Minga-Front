@@ -23,6 +23,7 @@
 #navfooter .logo-container img{
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 #navfooter .social-container{
@@ -41,22 +42,6 @@
     gap: 2.77vw;
 }
 
-#navfooter .donate{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 34px;
-    width: 15.347vw;
-    height: 4.199vh;
-    background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
-    border-radius: 4px;
-    text-decoration: none;
-    color: #FFFFFF;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 95.19%;
-}
 
 @media (max-width: 767px){
     #navfooter{

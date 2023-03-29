@@ -93,10 +93,15 @@
 @media (min-width: 320px) and (max-width: 767px) {
     #navopen{
         width: 100vw;
-        
     }
     #user{
         gap: 0.5rem;
     }
 
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #navopen{
+        width: 40vw;
+    }
 }
