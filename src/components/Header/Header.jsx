@@ -1,9 +1,5 @@
 import React from "react"
-<<<<<<< HEAD
-import Navbar from "../Navbar/Navbar"
-=======
 import Navbar from '../Navbar/Navbar'
->>>>>>> 1060844fa2a8d092d6d05ea115c85d92ec11971d
 import Logo from "../../images/Logo.png"
 import Open from "../open/Open"
 import "./Header.css"
