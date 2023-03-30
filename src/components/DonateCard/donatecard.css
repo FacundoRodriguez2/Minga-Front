@@ -13,12 +13,12 @@
     cursor: pointer;
 }
 .card-donate .desc {
-    font-size: 1vh;
+    font-size: 1.5vh;
  }
  .card-donate .price {
     width: 35%;
-    padding: .5rem;
-    font-size: 1vh;
+    padding: .7rem;
+    font-size: 1.3vh;
     font-weight: 700;
     background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
     border-radius: 80px;
@@ -29,3 +29,12 @@
     }
 
  }
+ @media (max-width: 741px) {
+    .card-donate {
+        width: 85%;
+    }
+    .card-donate .price {
+        border-radius: 20px;
+        padding-right: .3rem;
+     }
+}

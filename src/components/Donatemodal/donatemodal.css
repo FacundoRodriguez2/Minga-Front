@@ -6,7 +6,7 @@
 }
 .modal-container {
     width: 80%;
-    height: 70%;
+    min-height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +21,7 @@
 }
 .encabezado-modal {
     display: flex;
-    width: 100%;
+    width: 90%;
     justify-content: center;
     margin-right: 1rem;
 
@@ -37,24 +37,42 @@
 .modal-container h1 {
     font-size: 45px;
     font-weight: 600;
+    color: white;
     margin: 0;
 }
 
-.donate-cards {
+.modal-container .donate-cards {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 @media (max-width: 1024px) {
+    .modal-container {
+        gap: 2rem;
+        padding: 1rem;
+    }
     .modal-container h1 {
         font-size: 5vh;
-        font-weight: 550;
+        font-weight: 600;
         margin: 0;
+        text-align: center;
     }
-    .donate-cards {
+}
+@media (max-width: 740px) {
+    .modal-container {
+        gap: 2rem;
+        padding: 2rem;
+    }
+    .modal-container h1 {
+        font-size: 4vh
+    }
+    .modal-container .donate-cards {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 1rem;
 
     }
 }

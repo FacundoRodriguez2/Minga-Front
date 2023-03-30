@@ -7,8 +7,6 @@ import closeIcon from "../../images/closeIcon.png"
 
 export default function DonateModal( {onClick} ) {
 
- 
-
     const donationOptions = [
         { 
             title: "Dedicate a hacer otra cosa",

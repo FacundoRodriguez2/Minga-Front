@@ -1,38 +1,41 @@
 import React from 'react'
 import './donatecard.css'
 import axios from 'axios'
-import toast, { Toaster } from "react-hot-toast";
+import Swal from 'sweetalert2'
 import apiUrl from "../../url.js"
-
-
 
 
 export default function DonateCard({donate}) {
     let url = `${apiUrl}payments`
+    let token = localStorage.getItem('token')
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     const handleClick =  async () => {
-
         try {
-            axios.post(url, donate)
-                 .then(res => (window.location.href = res.data.response.body.init_point))
-                  await toast.show({
-                    type: 'success',
-                    text1: 'Sera redirigido a la pagina de Mercadopago',
-                  })
+            await axios.post(url, donate, headers)
+                       .then(res => (window.location.href = res.data.response.body.init_point))
+                      await Swal.fire({
+                        icon: "success",
+                        title: "EXITO",
+                        text: "Lx redirigiremos a la pagina de Mercadopago"})
+                      
         } catch (error) {
             if(error.response){
                 if (typeof error.response.data.message === 'string') {
-                  await toast.error(error.response.data.message)
+                    Swal.fire({
+                        icon: "error",
+                        tittle: "Something went wrong",
+                        text: error.response.data.message,
+                    })
                 } else {
-                  await error.response.data.message.forEach(err => toast.error(err))
+                   error.response.data.message.forEach(err => Swal.fire({text: err}))
                 }
               }else{
-                await toast.error(error.message)
+                   Swal.fire({text: error.message})
               }
         }
              
     }
-
 
     
 return (
@@ -43,9 +46,11 @@ return (
         <p className='desc'>
             {donate.description}
         </p>
-        <h5 className='price'>
+        <div className='price'>
+        <h5>
             {donate.price}
         </h5>
+        </div>
     </div>
 )
 
