@@ -29,7 +29,7 @@ const get_author = createAsyncThunk("get_author", async ({_id}) => {
 })
 const get_me = createAsyncThunk("get_me", async () => {
   try {
-      const response = await axios.get(`http://localhost:8080/api/authors/me`, handleToken())
+      const response = await axios.get(`https://back-minga.onrender.com/api/authors/me`, handleToken())
       return {
           response: { author: response.data },
           message: "Author found",
@@ -45,7 +45,7 @@ const edit_author = createAsyncThunk(
     "edit_author",
     async ({values}) => {
         try{
-            let response = await axios.put(`http://localhost:8080/api/authors/me`, values, handleToken())
+            let response = await axios.put(`https://back-minga.onrender.com/api/authors/me`, values, handleToken())
             return{
                 response: {author: response.data},
                 message: "Author updated successfully"
@@ -64,7 +64,7 @@ const delete_author = createAsyncThunk(
     "delete_author",
     async () => {
       try {
-        const response = await axios.put(`http://localhost:8080/api/authors/me`, { active: false }, handleToken());
+        const response = await axios.put(`https://back-minga.onrender.com/api/authors/me`, { active: false }, handleToken());
         return {
           response: { authors: response.data },
           message: "Author deleted successfully"

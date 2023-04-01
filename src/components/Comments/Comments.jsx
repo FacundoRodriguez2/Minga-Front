@@ -27,7 +27,7 @@ export default function Comment() {
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
     let [page, setPage] = useState(1)
-    let url = 'http://localhost:8080/api/comments?chapter_id=' + id + '&page=' + page
+    let url = 'https://back-minga.onrender.com/api/comments?chapter_id=' + id + '&page=' + page
     useEffect(() => {
         setTimeout(() => {
             axios.get(url, headers).then(res => setComments(res.data.comments))
@@ -49,7 +49,7 @@ export default function Comment() {
     async function handlePost(e) {
         e.preventDefault()
         try {
-            let url = 'http://localhost:8080/api/comments'
+            let url = 'https://back-minga.onrender.com/api/comments'
             let data = {
                 "chapter_id": id,
                 "text": input.current.value
@@ -73,7 +73,7 @@ export default function Comment() {
 
     async function handleDelete(e) {
         try {
-            let url = 'http://localhost:8080/api/comments/' + e.target.id
+            let url = 'https://back-minga.onrender.com/api/comments/' + e.target.id
             await axios.delete(url, headers)
             // toast.success("Comment deleted")
             setReload(!reload)
@@ -101,7 +101,7 @@ export default function Comment() {
             inputValue = e.target.previousSibling.firstChild.value
         }
         try {
-            let url = 'http://localhost:8080/api/comments/' + e.target.id
+            let url = 'https://back-minga.onrender.com/api/comments/' + e.target.id
             let data = {
                 "chapter_id": id,
                 "text": inputValue
@@ -124,7 +124,7 @@ export default function Comment() {
     }
 
     useEffect(() => { 
-        let url = 'http://localhost:8080/api/comments?chapter_id=' + id
+        let url = 'https://back-minga.onrender.com/api/comments?chapter_id=' + id
         setTimeout(() => {
             axios.get(url, headers).then(res => dispatch(getComments({comments: res.data.comments})))
         }, 100)

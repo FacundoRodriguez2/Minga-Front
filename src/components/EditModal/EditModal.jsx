@@ -46,7 +46,7 @@ export default function EditModal(props) {
 
     console.log(manga)
 
-    const url = 'http://localhost:8080/api/mangas/'+editMangaId
+    const url = 'https://back-minga.onrender.com/api/mangas/'+editMangaId
 
 
     try {
@@ -70,7 +70,7 @@ export default function EditModal(props) {
   }
 
   async function renderCategory() {
-    await axios.get('http://localhost:8080/api/categories', headers).then(response =>  setcategories(response.data.categories) )
+    await axios.get('https://back-minga.onrender.com/api/categories', headers).then(response =>  setcategories(response.data.categories) )
   }
 
 
@@ -79,7 +79,7 @@ export default function EditModal(props) {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/mangas/' + editMangaId, headers).then(response => setMangaToEdit(response.data.response))
+    axios.get('https://back-minga.onrender.com/api/mangas/' + editMangaId, headers).then(response => setMangaToEdit(response.data.response))
   }, [editMangaId])
 
   
