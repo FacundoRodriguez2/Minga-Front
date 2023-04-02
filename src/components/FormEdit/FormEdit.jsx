@@ -24,7 +24,7 @@ export default function FormEdit() {
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
     
-    let url = 'http://localhost:8080/api/chapters?manga_id=' + id
+    let url = 'https://back-minga.onrender.com/api/chapters?manga_id=' + id
     useEffect(() => {
         setTimeout(() => {
             axios.get(url, headers).then(res => setChapter(res.data.response))

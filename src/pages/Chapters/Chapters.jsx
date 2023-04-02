@@ -12,7 +12,7 @@ import { Link as Anchor } from "react-router-dom"
 
 
 export default function Chapters() {
-    let url = "http://localhost:8080/api/chapters/"
+    let url = "https://back-minga.onrender.com/api/chapters/"
     let {id, page} = useParams()
     let [chapter, setChapter] = useState({})
     let [next, setNext] = useState("")
@@ -27,7 +27,7 @@ export default function Chapters() {
     let comments = useSelector(store => store.comments.comments)
     console.log(comments)
 
-    let url2 = 'http://localhost:8080/api/comments?chapter_id=' + id
+    let url2 = 'https://back-minga.onrender.com/api/comments?chapter_id=' + id
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
     const { getComments } = commentsActions   

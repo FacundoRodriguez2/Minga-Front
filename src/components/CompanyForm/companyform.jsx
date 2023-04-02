@@ -30,6 +30,10 @@ export default function CompanyForm() {
         user_id
         }
 
+<<<<<<< HEAD
+=======
+        console.log(data)
+>>>>>>> 3f79e8bcdd35b601e9d2b0e8ccdf405e95b67984
         let url = `${apiUrl}companies`
         let token = localStorage.getItem('token')
         let headers = {headers:{'Authorization':`Bearer ${token}`}}

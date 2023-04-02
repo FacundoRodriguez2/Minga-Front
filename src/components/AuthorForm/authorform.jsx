@@ -32,6 +32,7 @@ export default function AuthorForm() {
         user_id
         }
 
+        console.log(data)
         let url = `${apiUrl}authors`
         let token = localStorage.getItem('token')
         let headers = {headers:{'Authorization':`Bearer ${token}`}}

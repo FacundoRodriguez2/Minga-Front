@@ -16,7 +16,7 @@ let read_all_authors = createAsyncThunk(
     'read_all_authors',
     async () => {
         try {
-            let response = await axios.get('http://localhost:8080/api/authors/admin/prueba')
+            let response = await axios.get('https://back-minga.onrender.com/api/authors/admin/prueba')
             return {
                 activeAuthors: response.data.authorActive,
                 inactiveAuthors: response.data.authorInactive,
@@ -30,7 +30,7 @@ let read_all_company = createAsyncThunk(
     'read_all_company',
     async () => {
         try {
-            let response = await axios.get('http://localhost:8080/api/companies/admin')
+            let response = await axios.get('https://back-minga.onrender.com/api/companies/admin')
             return {
                 activeCompanies: response.data.companyActive,
                 inactiveCompanies: response.data.companyInactive
@@ -45,7 +45,7 @@ let update_author_active = createAsyncThunk(
     'update_author_active ',
     async ({ _id, active}) => {
         try {
-            let response = await axios.put(`http://localhost:8080/api/authors/admin/prueba/${_id}`, { active: active })
+            let response = await axios.put(`https://back-minga.onrender.com/api/authors/admin/prueba/${_id}`, { active: active })
             return {
                 author: response.data.author,
                 success: true,
@@ -59,7 +59,7 @@ let update_company_active = createAsyncThunk(
     'update_company_active ',
     async ({ _id, active , headers}) => {
         try {
-            let response = await axios.put(`http://localhost:8080/api/companies/admin/${_id}`, { active: active })
+            let response = await axios.put(`https://back-minga.onrender.com/api/companies/admin/${_id}`, { active: active })
             return {
                 company: response.data.company,
                 success: true,
